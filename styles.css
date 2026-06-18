@@ -124,7 +124,6 @@ header {
 .logo-img {
   height: 5.5rem;
   width: auto;
-  mix-blend-mode: multiply;
   transition: transform 0.3s ease;
 }
 
