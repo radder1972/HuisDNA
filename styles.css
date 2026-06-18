@@ -1103,13 +1103,14 @@ footer {
 /* Background Fingerprint Watermark */
 .bg-helix-watermark {
   position: fixed;
-  top: 12vh;
-  right: -10vw;
-  width: 55vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
   max-width: 900px;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.035; /* Very subtle watermark opacity for light mode */
+  opacity: 0.15; /* Clearer but subtle watermark opacity for light mode */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -1118,7 +1119,7 @@ footer {
 }
 
 [data-theme="dark"] .bg-helix-watermark {
-  opacity: 0.06; /* Slightly more visible on dark backgrounds */
+  opacity: 0.22; /* Increased opacity in dark mode for visibility */
 }
 
 .bg-watermark-img {
@@ -1130,9 +1131,10 @@ footer {
 @media (max-width: 800px) {
   .bg-helix-watermark {
     width: 90vw;
-    right: -15vw;
-    top: 15vh;
-    opacity: 0.02; /* Fainter on mobile devices */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.08; /* Fainter on mobile devices */
   }
 }
 
