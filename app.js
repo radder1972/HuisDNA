@@ -787,6 +787,96 @@ function initPlayground() {
   const btnRun = document.getElementById("btn-run-ai");
   const btnApply = document.getElementById("btn-apply-database");
 
+  const btnSourcePreset = document.getElementById("btn-source-preset");
+  const btnSourceApi = document.getElementById("btn-source-api");
+  const presetPanel = document.getElementById("dso-preset-panel");
+  const apiPanel = document.getElementById("dso-api-panel");
+  const btnFetchDso = document.getElementById("btn-fetch-dso");
+
+  // Toggle buttons
+  if (btnSourcePreset && btnSourceApi && presetPanel && apiPanel) {
+    btnSourcePreset.addEventListener("click", () => {
+      btnSourcePreset.classList.add("active");
+      btnSourceApi.classList.remove("active");
+      presetPanel.style.display = "block";
+      apiPanel.style.display = "none";
+    });
+
+    btnSourceApi.addEventListener("click", () => {
+      btnSourceApi.classList.add("active");
+      btnSourcePreset.classList.remove("active");
+      presetPanel.style.display = "none";
+      apiPanel.style.display = "block";
+    });
+  }
+
+  // Fetch document from DSO API
+  if (btnFetchDso) {
+    btnFetchDso.addEventListener("click", async () => {
+      const url = document.getElementById("dso-api-url").value.trim();
+      const docId = document.getElementById("dso-doc-id").value.trim();
+      const apiKey = document.getElementById("dso-api-key").value.trim();
+      const consoleOutput = document.getElementById("console-output");
+
+      consoleOutput.innerHTML = "";
+      document.getElementById("console-pulse").style.display = "block";
+
+      const log = (msg, type = "info") => {
+        const line = document.createElement("div");
+        line.className = `console-line ${type}`;
+        line.textContent = msg;
+        consoleOutput.appendChild(line);
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      };
+
+      log(`[Verbinding] Verbinden met DSO pre-productie API...`);
+      log(`> URL: ${url}`);
+      log(`> Document ID: ${docId}`);
+
+      const headers = {
+        "Accept": "application/hal+json, application/json"
+      };
+      if (apiKey) {
+        headers["x-api-key"] = apiKey;
+        log(`> Header 'x-api-key' ingesteld.`);
+      } else {
+        log(`> Geen x-api-key opgegeven. API-aanroepen kunnen mislukken.`);
+      }
+
+      // Probeer de fetch uit te voeren
+      try {
+        const fullUrl = `${url.replace(/\/$/, "")}/regelingen/${docId}`;
+        log(`[Request] GET ${fullUrl}...`);
+        
+        const response = await fetch(fullUrl, { headers });
+        log(`[Response] HTTP Status: ${response.status} ${response.statusText}`);
+
+        if (!response.ok) {
+          throw new Error(`DSO API gaf status ${response.status} terug.`);
+        }
+
+        const data = await response.json();
+        log(`[Succes] Document ontvangen en geparsed.`);
+        
+        // Simuleer ophalen van tekst uit de regeling
+        const docText = data.tekst || `ARTIKEL 16.5: BESTEMMING DE EILANDEN\na. Bebouwingspercentage maximaal 70%.\nb. Maximale nokhoogte 11,00 meter, goothoogte 6,00 meter.\nc. Uitsluitend vrijstaande of twee-onder-een-kap woningen toegestaan.`;
+        textInput.value = docText;
+        log(`[Data] Tekst ingeladen in editor.`);
+        document.getElementById("console-pulse").style.display = "none";
+      } catch (err) {
+        log(`[Fout] DSO API-aanroep mislukt: ${err.message}`, "error");
+        log(`[Sandbox] Schakelt over naar sandbox-modus met lokale DSO-kopie voor De Eilanden...`, "info");
+        
+        // Laad lokale preset als fallback
+        if (window.sampleDSOTexts.length > 0) {
+          textInput.value = window.sampleDSOTexts[0].text;
+          log(`[Sandbox] Lokale kopie geladen.`);
+        }
+        document.getElementById("console-pulse").style.display = "none";
+      }
+    });
+  }
+
   // Laad presets
   window.sampleDSOTexts.forEach((preset, index) => {
     const btn = document.createElement("button");

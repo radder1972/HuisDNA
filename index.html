@@ -458,11 +458,39 @@
         
         <!-- Left: Legal Text Editor -->
         <div class="text-editor-container">
-          <div class="preset-selector">
-            <span style="font-weight: 600; font-size: 0.9rem;">Selecteer een voorbeeld DSO-document:</span>
-            <div class="preset-btn-group" id="dso-preset-group">
-              <!-- Dynamically populated -->
+          <div class="dso-source-toggle" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; background: var(--bg-tertiary); padding: 0.25rem; border-radius: 0.5rem;">
+            <button id="btn-source-preset" class="map-toggle-btn active" style="flex: 1; text-align: center; border: none; padding: 0.4rem; font-size: 0.85rem; font-weight: 600; border-radius: 0.35rem; cursor: pointer;">Lokale Presets</button>
+            <button id="btn-source-api" class="map-toggle-btn" style="flex: 1; text-align: center; border: none; padding: 0.4rem; font-size: 0.85rem; font-weight: 600; border-radius: 0.35rem; cursor: pointer;">Live DSO API</button>
+          </div>
+
+          <!-- Preset panel -->
+          <div id="dso-preset-panel">
+            <div class="preset-selector" style="margin-bottom: 1.5rem;">
+              <span style="font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Selecteer een voorbeeld DSO-document:</span>
+              <div class="preset-btn-group" id="dso-preset-group">
+                <!-- Dynamically populated -->
+              </div>
             </div>
+          </div>
+
+          <!-- API panel (hidden by default) -->
+          <div id="dso-api-panel" style="display: none; margin-bottom: 1.5rem; background: var(--bg-tertiary); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--border-color);">
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label for="dso-api-url" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">DSO API Basis-URL (Presenteren API)</label>
+              <input type="text" id="dso-api-url" value="https://service.pre.omgevingswet.overheid.nl/publiek/omgevingsdocumenten/api/presenteren/v1/" style="width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 0.85rem; box-sizing: border-box;">
+            </div>
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label for="dso-doc-id" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">Document Identificatie</label>
+              <input type="text" id="dso-doc-id" value="nl.imow-mnre1034.regeling.00001" style="width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 0.85rem; box-sizing: border-box;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label for="dso-api-key" style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 0.25rem;">x-api-key header (optioneel)</label>
+              <input type="password" id="dso-api-key" placeholder="Voer x-api-key in..." style="width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: 0.85rem; box-sizing: border-box;">
+            </div>
+            <button id="btn-fetch-dso" class="btn-secondary" style="width: 100%; padding: 0.6rem; border-radius: 0.5rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer;">
+              <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; width: 1.1rem; height: 1.1rem; fill: none;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Document Ophalen van DSO
+            </button>
           </div>
 
           <div class="form-group" style="flex-grow: 1; display:flex; flex-direction:column; margin-bottom:0;">
