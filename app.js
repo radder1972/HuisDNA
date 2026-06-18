@@ -211,9 +211,9 @@ function updateWizardStep() {
   btnPrev.style.visibility = activeStep === 1 ? "hidden" : "visible";
   
   if (activeStep === totalSteps) {
-    btnNext.textContent = "Bereken Kavel Match 🏁";
+    btnNext.innerHTML = `Bereken Kavel Match <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem; fill: none;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
   } else {
-    btnNext.textContent = "Volgende ➡️";
+    btnNext.innerHTML = `Volgende <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem; fill: none;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
   }
 
   switch(activeStep) {
