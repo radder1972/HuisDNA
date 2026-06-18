@@ -402,11 +402,11 @@ function renderMapKavels() {
 
 // --- LEAFLET SATELLIETKAART (OPTIE B) FUNCTIES ---
 function initLeafletMap() {
-  // Centreer op De Eilanden island in De Krijgsman Muiden (coördinaten: 52.3340, 5.0645)
+  // Centreer op het midden tussen de twee eilanden (IJsvogel & Wim Oudshoornstraat) van De Eilanden (coördinaten: 52.3348, 5.0600)
   leafletMap = L.map('leaflet-map', {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView([52.3340, 5.0645], 17);
+  }).setView([52.3348, 5.0600], 16);
   
   // Activeer zoom pas na focus
   leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });

@@ -1,553 +1,993 @@
 // Kavel-DNA Database en DSO Voorbeeldteksten voor De Eilanden - De Krijgsman Muiden
 const initialKavels = [
   {
-    id: 1,
-    name: "Kavel 1 (De Eilanden - Type Oevervilla)",
-    price: 845000,
-    size: 310,
-    gardenOrientation: "Zuid",
-    sunHours: 9.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 90,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8,
-    status: "available",
-    description: "Ruime oeverkavel aan de zuidzijde van het eiland. Prachtig uitzicht over het brede vaarwater en ruimte voor een eigen aanlegsteiger.",
-    coordinates: { x: 515, y: 256, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0629],
-      [52.3345, 5.0629],
-      [52.3345, 5.0632],
-      [52.3341, 5.0632]
+    "id": 1,
+    "name": "Kavel 1 (De Eilanden - Type Oevervilla)",
+    "price": 845000,
+    "size": 310,
+    "gardenOrientation": "Zuid",
+    "sunHours": 9.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 90,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8,
+    "status": "available",
+    "description": "Ruime oeverkavel aan de zuidzijde van het eiland. Prachtig uitzicht over het brede vaarwater en ruimte voor een eigen aanlegsteiger.",
+    "coordinates": {
+      "x": 515,
+      "y": 256,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0554
+      ],
+      [
+        52.3345,
+        5.0554
+      ],
+      [
+        52.3345,
+        5.0557
+      ],
+      [
+        52.3341,
+        5.0557
+      ]
     ]
   },
   {
-    id: 2,
-    name: "Kavel 2 (De Eilanden - Type Oevervilla)",
-    price: 825000,
-    size: 295,
-    gardenOrientation: "Zuid",
-    sunHours: 9.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 105,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8,
-    status: "available",
-    description: "Zongeoriënteerde geschakelde villa met een tuin grenzend aan het water. Uitstekend gesitueerd nabij de oostelijke toegangsbrug.",
-    coordinates: { x: 470, y: 256, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0626],
-      [52.3345, 5.0626],
-      [52.3345, 5.0629],
-      [52.3341, 5.0629]
+    "id": 2,
+    "name": "Kavel 2 (De Eilanden - Type Oevervilla)",
+    "price": 825000,
+    "size": 295,
+    "gardenOrientation": "Zuid",
+    "sunHours": 9.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 105,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8,
+    "status": "available",
+    "description": "Zongeoriënteerde geschakelde villa met een tuin grenzend aan het water. Uitstekend gesitueerd nabij de oostelijke toegangsbrug.",
+    "coordinates": {
+      "x": 470,
+      "y": 256,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0551
+      ],
+      [
+        52.3345,
+        5.0551
+      ],
+      [
+        52.3345,
+        5.0554
+      ],
+      [
+        52.3341,
+        5.0554
+      ]
     ]
   },
   {
-    id: 3,
-    name: "Kavel 3 (De Eilanden - Type Grachtenvilla)",
-    price: 835000,
-    size: 300,
-    gardenOrientation: "Zuidwest",
-    sunHours: 9,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 120,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 7.5,
-    status: "sold",
-    description: "Compacte doch riante geschakelde oevervilla aan de zuidelijke gracht. (Verkocht/Onder Optie).",
-    coordinates: { x: 415, y: 256, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0622],
-      [52.3345, 5.0622],
-      [52.3345, 5.0625],
-      [52.3341, 5.0625]
+    "id": 3,
+    "name": "Kavel 3 (De Eilanden - Type Grachtenvilla)",
+    "price": 835000,
+    "size": 300,
+    "gardenOrientation": "Zuidwest",
+    "sunHours": 9,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 120,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 7.5,
+    "status": "sold",
+    "description": "Compacte doch riante geschakelde oevervilla aan de zuidelijke gracht. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 415,
+      "y": 256,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0547
+      ],
+      [
+        52.3345,
+        5.0547
+      ],
+      [
+        52.3345,
+        5.055
+      ],
+      [
+        52.3341,
+        5.055
+      ]
     ]
   },
   {
-    id: 4,
-    name: "Kavel 4 (De Eilanden - Type Grachtenvilla)",
-    price: 855000,
-    size: 320,
-    gardenOrientation: "Zuidwest",
-    sunHours: 9,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 135,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 7.5,
-    status: "sold",
-    description: "Geschakelde grachtenvilla met een gunstige hoekligging en overtuin. (Verkocht/Onder Optie).",
-    coordinates: { x: 370, y: 256, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0619],
-      [52.3345, 5.0619],
-      [52.3345, 5.0622],
-      [52.3341, 5.0622]
+    "id": 4,
+    "name": "Kavel 4 (De Eilanden - Type Grachtenvilla)",
+    "price": 855000,
+    "size": 320,
+    "gardenOrientation": "Zuidwest",
+    "sunHours": 9,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 135,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 7.5,
+    "status": "sold",
+    "description": "Geschakelde grachtenvilla met een gunstige hoekligging en overtuin. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 370,
+      "y": 256,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0544
+      ],
+      [
+        52.3345,
+        5.0544
+      ],
+      [
+        52.3345,
+        5.0547
+      ],
+      [
+        52.3341,
+        5.0547
+      ]
     ]
   },
   {
-    id: 5,
-    name: "Kavel 5 (De Eilanden - De Landvilla)",
-    price: 1350000,
-    size: 480,
-    gardenOrientation: "Zuidwest",
-    sunHours: 10,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 150,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9,
-    status: "sold",
-    description: "Prachtige vrijstaande villa op een riante kavel met optimale bezonning en weids uitzicht. (Verkocht/Onder Optie).",
-    coordinates: { x: 295, y: 256, width: 65, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0613],
-      [52.3345, 5.0613],
-      [52.3345, 5.0618],
-      [52.3341, 5.0618]
+    "id": 5,
+    "name": "Kavel 5 (De Eilanden - De Landvilla)",
+    "price": 1350000,
+    "size": 480,
+    "gardenOrientation": "Zuidwest",
+    "sunHours": 10,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 150,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9,
+    "status": "sold",
+    "description": "Prachtige vrijstaande villa op een riante kavel met optimale bezonning en weids uitzicht. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 295,
+      "y": 256,
+      "width": 65,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0538
+      ],
+      [
+        52.3345,
+        5.0538
+      ],
+      [
+        52.3345,
+        5.0543
+      ],
+      [
+        52.3341,
+        5.0543
+      ]
     ]
   },
   {
-    id: 6,
-    name: "Kavel 6 (De Eilanden - De Landvilla)",
-    price: 1395000,
-    size: 510,
-    gardenOrientation: "Zuidwest",
-    sunHours: 10,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 165,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9,
-    status: "available",
-    description: "Een van de meest gewilde vrijstaande kavels op het eiland. Direct gelegen aan de zuidelijke waterweg met perfecte zoninval.",
-    coordinates: { x: 225, y: 256, width: 65, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0607],
-      [52.3345, 5.0607],
-      [52.3345, 5.0612],
-      [52.3341, 5.0612]
+    "id": 6,
+    "name": "Kavel 6 (De Eilanden - De Landvilla)",
+    "price": 1395000,
+    "size": 510,
+    "gardenOrientation": "Zuidwest",
+    "sunHours": 10,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 165,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9,
+    "status": "available",
+    "description": "Een van de meest gewilde vrijstaande kavels op het eiland. Direct gelegen aan de zuidelijke waterweg met perfecte zoninval.",
+    "coordinates": {
+      "x": 225,
+      "y": 256,
+      "width": 65,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0532
+      ],
+      [
+        52.3345,
+        5.0532
+      ],
+      [
+        52.3345,
+        5.0537
+      ],
+      [
+        52.3341,
+        5.0537
+      ]
     ]
   },
   {
-    id: 7,
-    name: "Kavel 7 (De Eilanden - De Hoekvilla)",
-    price: 1425000,
-    size: 530,
-    gardenOrientation: "Zuidwest",
-    sunHours: 9.5,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 180,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9.5,
-    status: "sold",
-    description: "Exclusieve hoekkavel aan de westelijke zijgracht. Maximale privacy door de hoekligging en omliggend groen. (Verkocht/Onder Optie).",
-    coordinates: { x: 150, y: 256, width: 65, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3341, 5.0602],
-      [52.3345, 5.0602],
-      [52.3345, 5.0606],
-      [52.3341, 5.0606]
+    "id": 7,
+    "name": "Kavel 7 (De Eilanden - De Hoekvilla)",
+    "price": 1425000,
+    "size": 530,
+    "gardenOrientation": "Zuidwest",
+    "sunHours": 9.5,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 180,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9.5,
+    "status": "sold",
+    "description": "Exclusieve hoekkavel aan de westelijke zijgracht. Maximale privacy door de hoekligging en omliggend groen. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 150,
+      "y": 256,
+      "width": 65,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3341,
+        5.0527
+      ],
+      [
+        52.3345,
+        5.0527
+      ],
+      [
+        52.3345,
+        5.0531
+      ],
+      [
+        52.3341,
+        5.0531
+      ]
     ]
   },
   {
-    id: 8,
-    name: "Kavel 8 (De Eilanden - De Kruitvaart-villa)",
-    price: 1450000,
-    size: 540,
-    gardenOrientation: "Noordwest",
-    sunHours: 8.5,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 180,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9.5,
-    status: "available",
-    description: "Prachtige hoekkavel aan de noordwestzijde van het eiland. Directe ligging aan de brede Kruitvaart met een fantastisch uitzicht over de grachten.",
-    coordinates: { x: 150, y: 100, width: 65, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0602],
-      [52.3351, 5.0602],
-      [52.3351, 5.0606],
-      [52.3347, 5.0606]
+    "id": 8,
+    "name": "Kavel 8 (De Eilanden - De Kruitvaart-villa)",
+    "price": 1450000,
+    "size": 540,
+    "gardenOrientation": "Noordwest",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 180,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9.5,
+    "status": "available",
+    "description": "Prachtige hoekkavel aan de noordwestzijde van het eiland. Directe ligging aan de brede Kruitvaart met een fantastisch uitzicht over de grachten.",
+    "coordinates": {
+      "x": 150,
+      "y": 100,
+      "width": 65,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0527
+      ],
+      [
+        52.3351,
+        5.0527
+      ],
+      [
+        52.3351,
+        5.0531
+      ],
+      [
+        52.3347,
+        5.0531
+      ]
     ]
   },
   {
-    id: 9,
-    name: "Kavel 9 (De Eilanden - De Kruitvaart-villa)",
-    price: 1380000,
-    size: 495,
-    gardenOrientation: "Noordwest",
-    sunHours: 8.5,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 165,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9,
-    status: "available",
-    description: "Vrijstaande oeverkavel aan de Kruitvaart. Perfecte plek voor bootliefhebbers met ruimte voor een riante steiger en sloep direct aan uw tuin.",
-    coordinates: { x: 225, y: 100, width: 65, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0607],
-      [52.3351, 5.0607],
-      [52.3351, 5.0612],
-      [52.3347, 5.0612]
+    "id": 9,
+    "name": "Kavel 9 (De Eilanden - De Kruitvaart-villa)",
+    "price": 1380000,
+    "size": 495,
+    "gardenOrientation": "Noordwest",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 165,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9,
+    "status": "available",
+    "description": "Vrijstaande oeverkavel aan de Kruitvaart. Perfecte plek voor bootliefhebbers met ruimte voor een riante steiger en sloep direct aan uw tuin.",
+    "coordinates": {
+      "x": 225,
+      "y": 100,
+      "width": 65,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0532
+      ],
+      [
+        52.3351,
+        5.0532
+      ],
+      [
+        52.3351,
+        5.0537
+      ],
+      [
+        52.3347,
+        5.0537
+      ]
     ]
   },
   {
-    id: 10,
-    name: "Kavel 10 (De Eilanden - Type Waterkade)",
-    price: 815000,
-    size: 280,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 150,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8,
-    status: "sold",
-    description: "Compacte geschakelde villa met een tuin direct grenzend aan de Kruitvaart. (Verkocht/Onder Optie).",
-    coordinates: { x: 295, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0613],
-      [52.3351, 5.0613],
-      [52.3351, 5.0616],
-      [52.3347, 5.0616]
+    "id": 10,
+    "name": "Kavel 10 (De Eilanden - Type Waterkade)",
+    "price": 815000,
+    "size": 280,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 150,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8,
+    "status": "sold",
+    "description": "Compacte geschakelde villa met een tuin direct grenzend aan de Kruitvaart. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 295,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0538
+      ],
+      [
+        52.3351,
+        5.0538
+      ],
+      [
+        52.3351,
+        5.0541
+      ],
+      [
+        52.3347,
+        5.0541
+      ]
     ]
   },
   {
-    id: 11,
-    name: "Kavel 11 (De Eilanden - Type Waterkade)",
-    price: 830000,
-    size: 290,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 135,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8,
-    status: "sold",
-    description: "Geschakelde villa met fraaie zichtlijnen over het water van de Kruitvaart. (Verkocht/Onder Optie).",
-    coordinates: { x: 340, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0616],
-      [52.3351, 5.0616],
-      [52.3351, 5.0619],
-      [52.3347, 5.0619]
+    "id": 11,
+    "name": "Kavel 11 (De Eilanden - Type Waterkade)",
+    "price": 830000,
+    "size": 290,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 135,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8,
+    "status": "sold",
+    "description": "Geschakelde villa met fraaie zichtlijnen over het water van de Kruitvaart. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 340,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0541
+      ],
+      [
+        52.3351,
+        5.0541
+      ],
+      [
+        52.3351,
+        5.0544
+      ],
+      [
+        52.3347,
+        5.0544
+      ]
     ]
   },
   {
-    id: 12,
-    name: "Kavel 12 (De Eilanden - Type Kruitvaart)",
-    price: 850000,
-    size: 315,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 120,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Comfortabele en lichte geschakelde villa. Biedt uitstekende zonuren op de oeverterras en heeft een eigen sloepaanlegplaats.",
-    coordinates: { x: 395, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0620],
-      [52.3351, 5.0620],
-      [52.3351, 5.0623],
-      [52.3347, 5.0623]
+    "id": 12,
+    "name": "Kavel 12 (De Eilanden - Type Kruitvaart)",
+    "price": 850000,
+    "size": 315,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 120,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Comfortabele en lichte geschakelde villa. Biedt uitstekende zonuren op de oeverterras en heeft een eigen sloepaanlegplaats.",
+    "coordinates": {
+      "x": 395,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0545
+      ],
+      [
+        52.3351,
+        5.0545
+      ],
+      [
+        52.3351,
+        5.0548
+      ],
+      [
+        52.3347,
+        5.0548
+      ]
     ]
   },
   {
-    id: 13,
-    name: "Kavel 13 (De Eilanden - Type Kruitvaart)",
-    price: 865000,
-    size: 325,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 105,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Ruime twee-onder-een-kapvilla met oprit voor twee auto's. Direct grenzend aan de Kruitvaart met perfect vaarwater voor de deur.",
-    coordinates: { x: 440, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0623],
-      [52.3351, 5.0623],
-      [52.3351, 5.0626],
-      [52.3347, 5.0626]
+    "id": 13,
+    "name": "Kavel 13 (De Eilanden - Type Kruitvaart)",
+    "price": 865000,
+    "size": 325,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 105,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Ruime twee-onder-een-kapvilla met oprit voor twee auto's. Direct grenzend aan de Kruitvaart met perfect vaarwater voor de deur.",
+    "coordinates": {
+      "x": 440,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0548
+      ],
+      [
+        52.3351,
+        5.0548
+      ],
+      [
+        52.3351,
+        5.0551
+      ],
+      [
+        52.3347,
+        5.0551
+      ]
     ]
   },
   {
-    id: 14,
-    name: "Kavel 14 (De Eilanden - Type Brugvilla)",
-    price: 885000,
-    size: 340,
-    gardenOrientation: "Noord",
-    sunHours: 8.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 90,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Geschakelde villa gelegen nabij de centrale brug. Riant terras aan het water en weids uitzicht over de noordelijke Kruitvaart.",
-    coordinates: { x: 495, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0627],
-      [52.3351, 5.0627],
-      [52.3351, 5.0630],
-      [52.3347, 5.0630]
+    "id": 14,
+    "name": "Kavel 14 (De Eilanden - Type Brugvilla)",
+    "price": 885000,
+    "size": 340,
+    "gardenOrientation": "Noord",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 90,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Geschakelde villa gelegen nabij de centrale brug. Riant terras aan het water en weids uitzicht over de noordelijke Kruitvaart.",
+    "coordinates": {
+      "x": 495,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0552
+      ],
+      [
+        52.3351,
+        5.0552
+      ],
+      [
+        52.3351,
+        5.0555
+      ],
+      [
+        52.3347,
+        5.0555
+      ]
     ]
   },
   {
-    id: 15,
-    name: "Kavel 15 (De Eilanden - Type Brugvilla)",
-    price: 895000,
-    size: 345,
-    gardenOrientation: "Noord",
-    sunHours: 8.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 75,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Ideaal gelegen tussenkavel direct aan het vaarwater. Uitstekende indeling met veel daglichtinval op de begane grond.",
-    coordinates: { x: 540, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0630],
-      [52.3351, 5.0630],
-      [52.3351, 5.0633],
-      [52.3347, 5.0633]
+    "id": 15,
+    "name": "Kavel 15 (De Eilanden - Type Brugvilla)",
+    "price": 895000,
+    "size": 345,
+    "gardenOrientation": "Noord",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 75,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Ideaal gelegen tussenkavel direct aan het vaarwater. Uitstekende indeling met veel daglichtinval op de begane grond.",
+    "coordinates": {
+      "x": 540,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0555
+      ],
+      [
+        52.3351,
+        5.0555
+      ],
+      [
+        52.3351,
+        5.0558
+      ],
+      [
+        52.3347,
+        5.0558
+      ]
     ]
   },
   {
-    id: 16,
-    name: "Kavel 16 (De Eilanden - De Oprit-villa - Fase 2)",
-    price: 1395000,
-    size: 500,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 60,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9,
-    status: "sold",
-    description: "Fase 2 - Exclusieve vrijstaande watervilla op een zeer ruime kavel. (Verkocht/Onder Optie).",
-    coordinates: { x: 595, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0634],
-      [52.3351, 5.0634],
-      [52.3351, 5.0637],
-      [52.3347, 5.0637]
+    "id": 16,
+    "name": "Kavel 16 (De Eilanden - De Oprit-villa - Fase 2)",
+    "price": 1395000,
+    "size": 500,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 60,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9,
+    "status": "sold",
+    "description": "Fase 2 - Exclusieve vrijstaande watervilla op een zeer ruime kavel. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 595,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0634
+      ],
+      [
+        52.3351,
+        5.0634
+      ],
+      [
+        52.3351,
+        5.0637
+      ],
+      [
+        52.3347,
+        5.0637
+      ]
     ]
   },
   {
-    id: 17,
-    name: "Kavel 17 (De Eilanden - De Oprit-villa - Fase 2)",
-    price: 1415000,
-    size: 515,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 50,
-    distanceToWater: 0,
-    distanceToRoad: 20,
-    privacyScore: 9,
-    status: "sold",
-    description: "Fase 2 - Royale vrijstaande kavel met tuin aan de Kruitvaart. Perfect gesitueerd ten opzichte van de wijkentree. (Verkocht/Onder Optie).",
-    coordinates: { x: 640, y: 100, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0637],
-      [52.3351, 5.0637],
-      [52.3351, 5.0640],
-      [52.3347, 5.0640]
+    "id": 17,
+    "name": "Kavel 17 (De Eilanden - De Oprit-villa - Fase 2)",
+    "price": 1415000,
+    "size": 515,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 50,
+    "distanceToWater": 0,
+    "distanceToRoad": 20,
+    "privacyScore": 9,
+    "status": "sold",
+    "description": "Fase 2 - Royale vrijstaande kavel met tuin aan de Kruitvaart. Perfect gesitueerd ten opzichte van de wijkentree. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 640,
+      "y": 100,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0637
+      ],
+      [
+        52.3351,
+        5.0637
+      ],
+      [
+        52.3351,
+        5.064
+      ],
+      [
+        52.3347,
+        5.064
+      ]
     ]
   },
   {
-    id: 18,
-    name: "Kavel 18 (De Eilanden - Type Eilandvilla - Fase 2)",
-    price: 915000,
-    size: 335,
-    gardenOrientation: "Noord",
-    sunHours: 8.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 40,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Fase 2 - Geschakelde villa met een tuin direct grenzend aan de Kruitvaart en prachtig uitzicht.",
-    coordinates: { x: 695, y: 110, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0641],
-      [52.3351, 5.0641],
-      [52.3351, 5.0644],
-      [52.3347, 5.0644]
+    "id": 18,
+    "name": "Kavel 18 (De Eilanden - Type Eilandvilla - Fase 2)",
+    "price": 915000,
+    "size": 335,
+    "gardenOrientation": "Noord",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 40,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Fase 2 - Geschakelde villa met een tuin direct grenzend aan de Kruitvaart en prachtig uitzicht.",
+    "coordinates": {
+      "x": 695,
+      "y": 110,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0641
+      ],
+      [
+        52.3351,
+        5.0641
+      ],
+      [
+        52.3351,
+        5.0644
+      ],
+      [
+        52.3347,
+        5.0644
+      ]
     ]
   },
   {
-    id: 19,
-    name: "Kavel 19 (De Eilanden - Type Eilandvilla - Fase 2)",
-    price: 920000,
-    size: 340,
-    gardenOrientation: "Noord",
-    sunHours: 8.5,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 35,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Fase 2 - Ruime twee-onder-een-kap oevervilla met uitstekende indeling en eigen insteekhaven voor boot.",
-    coordinates: { x: 740, y: 110, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0644],
-      [52.3351, 5.0644],
-      [52.3351, 5.0647],
-      [52.3347, 5.0647]
+    "id": 19,
+    "name": "Kavel 19 (De Eilanden - Type Eilandvilla - Fase 2)",
+    "price": 920000,
+    "size": 340,
+    "gardenOrientation": "Noord",
+    "sunHours": 8.5,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 35,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Fase 2 - Ruime twee-onder-een-kap oevervilla met uitstekende indeling en eigen insteekhaven voor boot.",
+    "coordinates": {
+      "x": 740,
+      "y": 110,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0644
+      ],
+      [
+        52.3351,
+        5.0644
+      ],
+      [
+        52.3351,
+        5.0647
+      ],
+      [
+        52.3347,
+        5.0647
+      ]
     ]
   },
   {
-    id: 20,
-    name: "Kavel 20 (De Eilanden - Type Eilandkroon - Fase 2)",
-    price: 935000,
-    size: 350,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 30,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Fase 2 - Riant geschakeld perceel op het einde van de straat met optimaal zicht over de splitsing in de Kruitvaart.",
-    coordinates: { x: 795, y: 120, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0648],
-      [52.3351, 5.0648],
-      [52.3351, 5.0651],
-      [52.3347, 5.0651]
+    "id": 20,
+    "name": "Kavel 20 (De Eilanden - Type Eilandkroon - Fase 2)",
+    "price": 935000,
+    "size": 350,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 30,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Fase 2 - Riant geschakeld perceel op het einde van de straat met optimaal zicht over de splitsing in de Kruitvaart.",
+    "coordinates": {
+      "x": 795,
+      "y": 120,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0648
+      ],
+      [
+        52.3351,
+        5.0648
+      ],
+      [
+        52.3351,
+        5.0651
+      ],
+      [
+        52.3347,
+        5.0651
+      ]
     ]
   },
   {
-    id: 21,
-    name: "Kavel 21 (De Eilanden - Type Eilandkroon - Fase 2)",
-    price: 945000,
-    size: 360,
-    gardenOrientation: "Noord",
-    sunHours: 8,
-    houseTypes: ["Twee-onder-een-kap"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 25,
-    distanceToWater: 0,
-    distanceToRoad: 15,
-    privacyScore: 8.5,
-    status: "available",
-    description: "Fase 2 - Uitzonderlijk brede twee-onder-een-kapkavel grenzend aan open vaarwater richting de Vecht.",
-    coordinates: { x: 840, y: 120, width: 45, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0651],
-      [52.3351, 5.0651],
-      [52.3351, 5.0654],
-      [52.3347, 5.0654]
+    "id": 21,
+    "name": "Kavel 21 (De Eilanden - Type Eilandkroon - Fase 2)",
+    "price": 945000,
+    "size": 360,
+    "gardenOrientation": "Noord",
+    "sunHours": 8,
+    "houseTypes": [
+      "Twee-onder-een-kap"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 25,
+    "distanceToWater": 0,
+    "distanceToRoad": 15,
+    "privacyScore": 8.5,
+    "status": "available",
+    "description": "Fase 2 - Uitzonderlijk brede twee-onder-een-kapkavel grenzend aan open vaarwater richting de Vecht.",
+    "coordinates": {
+      "x": 840,
+      "y": 120,
+      "width": 45,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0651
+      ],
+      [
+        52.3351,
+        5.0651
+      ],
+      [
+        52.3351,
+        5.0654
+      ],
+      [
+        52.3347,
+        5.0654
+      ]
     ]
   },
   {
-    id: 22,
-    name: "Kavel 22 (De Eilanden - De Kroonvilla - Fase 2)",
-    price: 1850000,
-    size: 650,
-    gardenOrientation: "Noord",
-    sunHours: 9,
-    houseTypes: ["Vrijstaande villa"],
-    bebouwingspercentage: 70,
-    maxNokhoogte: 11,
-    maxGoothoogte: 6,
-    distanceToPlayground: 20,
-    distanceToWater: 0,
-    distanceToRoad: 25,
-    privacyScore: 9.5,
-    status: "sold",
-    description: "Fase 2 - De ultieme Kroonvilla op de uiterste oostpunt van het eiland. Maximaal perceeloppervlak en rondom uitzicht over water. (Verkocht/Onder Optie).",
-    coordinates: { x: 895, y: 120, width: 50, height: 130, rotation: 0 },
-    gpsPolygon: [
-      [52.3347, 5.0655],
-      [52.3351, 5.0655],
-      [52.3351, 5.0659],
-      [52.3347, 5.0659]
+    "id": 22,
+    "name": "Kavel 22 (De Eilanden - De Kroonvilla - Fase 2)",
+    "price": 1850000,
+    "size": 650,
+    "gardenOrientation": "Noord",
+    "sunHours": 9,
+    "houseTypes": [
+      "Vrijstaande villa"
+    ],
+    "bebouwingspercentage": 70,
+    "maxNokhoogte": 11,
+    "maxGoothoogte": 6,
+    "distanceToPlayground": 20,
+    "distanceToWater": 0,
+    "distanceToRoad": 25,
+    "privacyScore": 9.5,
+    "status": "sold",
+    "description": "Fase 2 - De ultieme Kroonvilla op de uiterste oostpunt van het eiland. Maximaal perceeloppervlak en rondom uitzicht over water. (Verkocht/Onder Optie).",
+    "coordinates": {
+      "x": 895,
+      "y": 120,
+      "width": 50,
+      "height": 130,
+      "rotation": 0
+    },
+    "gpsPolygon": [
+      [
+        52.3347,
+        5.0655
+      ],
+      [
+        52.3351,
+        5.0655
+      ],
+      [
+        52.3351,
+        5.0659
+      ],
+      [
+        52.3347,
+        5.0659
+      ]
     ]
   }
 ];
