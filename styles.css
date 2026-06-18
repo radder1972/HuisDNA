@@ -580,7 +580,7 @@ svg#interactive-neighborhood {
 
 /* Interactive SVG States */
 svg .svg-kavel {
-  fill: #1e2942;
+  fill: #1a2c4e; /* Premium dark blue background for dark mode */
   stroke: rgba(255, 255, 255, 0.2);
   stroke-width: 2;
   cursor: pointer;
@@ -605,12 +605,32 @@ svg .svg-kavel.top-match {
 }
 
 svg .svg-kavel-label {
-  fill: var(--text-primary);
-  font-size: 12px;
+  fill: #ffffff; /* White text on dark backgrounds */
+  font-size: 14px;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   text-anchor: middle;
   pointer-events: none;
+  transition: fill var(--transition-speed);
+}
+
+/* Light Theme overrides for Map readability */
+[data-theme="light"] svg .svg-kavel {
+  fill: #e2e8f0; /* Light gray background in light mode */
+  stroke: rgba(15, 45, 89, 0.15);
+}
+
+[data-theme="light"] svg .svg-kavel:hover {
+  fill: rgba(76, 194, 165, 0.15);
+}
+
+[data-theme="light"] svg .svg-kavel.selected {
+  fill: rgba(76, 194, 165, 0.2);
+  filter: drop-shadow(0 0 8px rgba(76, 194, 165, 0.2));
+}
+
+[data-theme="light"] svg .svg-kavel-label {
+  fill: #0f2d59; /* Dark navy text on light backgrounds */
 }
 
 svg .svg-water {
