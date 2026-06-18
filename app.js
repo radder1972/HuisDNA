@@ -6,6 +6,9 @@ let activeTab = "wizard";
 let activeStep = 1;
 const totalSteps = 4;
 let selectedKavelId = null;
+let currentMapMode = "svg";
+let leafletMap = null;
+let leafletPolygons = {};
 
 // Standaard lifestyle voorkeuren van de koper
 let preferences = {
@@ -308,9 +311,47 @@ function renderMatchingResults(matches) {
   });
 }
 
-// --- INTERACTIEVE PLATTEGROND (SVG) ---
+// --- INTERACTIEVE PLATTEGROND (SVG & LEAFLET) ---
 function initMap() {
   renderMapKavels();
+  
+  // Setup Map Toggle Buttons
+  const svgToggle = document.getElementById("map-toggle-svg");
+  const satToggle = document.getElementById("map-toggle-satellite");
+  const svgContainer = document.getElementById("interactive-neighborhood");
+  const satContainer = document.getElementById("leaflet-map");
+  
+  if (svgToggle && satToggle) {
+    svgToggle.addEventListener("click", () => {
+      currentMapMode = "svg";
+      svgToggle.classList.add("active");
+      svgToggle.setAttribute("aria-checked", "true");
+      satToggle.classList.remove("active");
+      satToggle.setAttribute("aria-checked", "false");
+      
+      svgContainer.style.display = "block";
+      satContainer.style.display = "none";
+    });
+    
+    satToggle.addEventListener("click", () => {
+      currentMapMode = "satellite";
+      satToggle.classList.add("active");
+      satToggle.setAttribute("aria-checked", "true");
+      svgToggle.classList.remove("active");
+      svgToggle.setAttribute("aria-checked", "false");
+      
+      svgContainer.style.display = "none";
+      satContainer.style.display = "block";
+      
+      // Initialiseer Leaflet indien nog niet gedaan
+      if (!leafletMap) {
+        initLeafletMap();
+      } else {
+        // Vraag Leaflet om zijn grootte te herberekenen na weergave-wijziging
+        setTimeout(() => leafletMap.invalidateSize(), 50);
+      }
+    });
+  }
 }
 
 function renderMapKavels() {
@@ -352,8 +393,259 @@ function renderMapKavels() {
   });
 }
 
+// --- LEAFLET SATELLIETKAART (OPTIE B) FUNCTIES ---
+function initLeafletMap() {
+  // Centreer op De Krijgsman Muiden (coördinaten: 52.3287, 5.0645)
+  leafletMap = L.map('leaflet-map', {
+    zoomControl: true,
+    scrollWheelZoom: false
+  }).setView([52.3284, 5.0645], 16);
+  
+  // Activeer zoom pas na focus
+  leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });
+  leafletMap.on('blur', () => { leafletMap.scrollWheelZoom.disable(); });
+  
+  // Esri World Imagery (Hoge kwaliteit satellietfoto) inladen
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and GIS User Community',
+    maxZoom: 19
+  }).addTo(leafletMap);
+  
+  // Plot de polygonen op de kaart
+  renderLeafletPolygons();
+  
+  // Indien er al een kavel geselecteerd was, highlight deze direct
+  if (selectedKavelId) {
+    highlightLeafletPolygon(selectedKavelId);
+  }
+  
+  // Synchroniseer matchings-highlights indien van toepassing
+  const listContainer = document.getElementById("matching-results-list");
+  if (listContainer && listContainer.querySelector(".match-card")) {
+    const matches = window.calculateMatches(preferences, kavels);
+    updateLeafletHighlighting(matches);
+  }
+}
+
+function getLeafletPolygonStyle(kavelId) {
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  const defaultFillColor = isLight ? "#e2e8f0" : "#1a2c4e";
+  const defaultStrokeColor = isLight ? "rgba(15, 45, 89, 0.25)" : "rgba(255, 255, 255, 0.25)";
+  const isSelected = selectedKavelId === kavelId;
+  
+  if (isSelected) {
+    return {
+      fillColor: "#4cc2a5",
+      fillOpacity: 0.35,
+      color: "#4cc2a5",
+      weight: 4
+    };
+  }
+  
+  return {
+    fillColor: defaultFillColor,
+    fillOpacity: 0.5,
+    color: defaultStrokeColor,
+    weight: 2
+  };
+}
+
+function renderLeafletPolygons() {
+  // Verwijder eventuele oude layers
+  for (let id in leafletPolygons) {
+    leafletMap.removeLayer(leafletPolygons[id]);
+  }
+  leafletPolygons = {};
+  
+  kavels.forEach(kavel => {
+    if (!kavel.gpsPolygon) return;
+    
+    const polygon = L.polygon(kavel.gpsPolygon, getLeafletPolygonStyle(kavel.id));
+    
+    // Voeg tooltip toe
+    polygon.bindTooltip(`<strong>${kavel.name}</strong><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`, {
+      className: 'leaflet-tooltip-huisdna',
+      direction: 'top',
+      sticky: true
+    });
+    
+    // Hover-effecten
+    polygon.on('mouseover', () => {
+      if (selectedKavelId !== kavel.id) {
+        polygon.setStyle({
+          fillColor: "#4cc2a5",
+          fillOpacity: 0.2,
+          color: "#4cc2a5",
+          weight: 3
+        });
+      }
+    });
+    
+    polygon.on('mouseout', () => {
+      const isSelected = selectedKavelId === kavel.id;
+      if (isSelected) {
+        polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+      } else {
+        // Herstel matching highlights of standaard style
+        const matches = window.calculateMatches ? window.calculateMatches(preferences, kavels) : [];
+        const match = matches.find(m => m.kavel.id === kavel.id);
+        const validMatches = matches.filter(m => !m.isFiltered);
+        
+        if (match && match.isFiltered) {
+          polygon.setStyle({
+            fillColor: "#334155",
+            fillOpacity: 0.1,
+            color: "rgba(0,0,0,0.1)",
+            weight: 1
+          });
+        } else if (match) {
+          const rankIndex = validMatches.findIndex(m => m.kavel.id === kavel.id);
+          if (rankIndex >= 0 && rankIndex < 3) {
+            if (rankIndex === 0) {
+              polygon.setStyle({
+                fillColor: "#f59e0b",
+                fillOpacity: 0.3,
+                color: "#f59e0b",
+                weight: 4
+              });
+            } else {
+              polygon.setStyle({
+                fillColor: "#10b981",
+                fillOpacity: 0.25,
+                color: "#10b981",
+                weight: 3.5
+              });
+            }
+          } else {
+            polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+          }
+        } else {
+          polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+        }
+      }
+    });
+    
+    polygon.on('click', () => {
+      selectKavel(kavel.id);
+    });
+    
+    polygon.addTo(leafletMap);
+    leafletPolygons[kavel.id] = polygon;
+  });
+}
+
+function updateLeafletHighlighting(matches) {
+  if (!leafletMap) return;
+  
+  const validMatches = matches.filter(m => !m.isFiltered);
+  
+  kavels.forEach(kavel => {
+    const polygon = leafletPolygons[kavel.id];
+    if (!polygon) return;
+    
+    const match = matches.find(m => m.kavel.id === kavel.id);
+    const isSelected = selectedKavelId === kavel.id;
+    
+    if (isSelected) {
+      polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+      return;
+    }
+    
+    if (match && match.isFiltered) {
+      // Uitgefilterd
+      polygon.setStyle({
+        fillColor: "#334155",
+        fillOpacity: 0.1,
+        color: "rgba(0,0,0,0.1)",
+        weight: 1
+      });
+    } else if (match) {
+      const rankIndex = validMatches.findIndex(m => m.kavel.id === kavel.id);
+      if (rankIndex >= 0 && rankIndex < 3) {
+        if (rankIndex === 0) {
+          polygon.setStyle({
+            fillColor: "#f59e0b",
+            fillOpacity: 0.3,
+            color: "#f59e0b",
+            weight: 4
+          });
+          polygon.setTooltipContent(`<strong>${kavel.name}</strong><br><span style="color:#f59e0b;font-weight:700;">★ Best Match: ${match.score}%</span><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`);
+        } else {
+          polygon.setStyle({
+            fillColor: "#10b981",
+            fillOpacity: 0.25,
+            color: "#10b981",
+            weight: 3.5
+          });
+          polygon.setTooltipContent(`<strong>${kavel.name}</strong><br><span style="color:#10b981;font-weight:700;">✓ Match: ${match.score}%</span><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`);
+        }
+      } else {
+        polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+        polygon.setTooltipContent(`<strong>${kavel.name}</strong><br><span style="color:var(--accent-color);">${match.score}% Match</span><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`);
+      }
+    }
+  });
+}
+
+function highlightLeafletPolygon(id) {
+  if (!leafletMap) return;
+  
+  const matches = window.calculateMatches ? window.calculateMatches(preferences, kavels) : [];
+  const validMatches = matches.filter(m => !m.isFiltered);
+  
+  kavels.forEach(kavel => {
+    const polygon = leafletPolygons[kavel.id];
+    if (!polygon) return;
+    
+    const isSelected = kavel.id === id;
+    
+    if (isSelected) {
+      polygon.setStyle({
+        fillColor: "#4cc2a5",
+        fillOpacity: 0.35,
+        color: "#4cc2a5",
+        weight: 5
+      });
+      polygon.bringToFront();
+    } else {
+      const match = matches.find(m => m.kavel.id === kavel.id);
+      if (match && match.isFiltered) {
+        polygon.setStyle({
+          fillColor: "#334155",
+          fillOpacity: 0.1,
+          color: "rgba(0,0,0,0.1)",
+          weight: 1
+        });
+      } else if (match) {
+        const rankIndex = validMatches.findIndex(m => m.kavel.id === kavel.id);
+        if (rankIndex >= 0 && rankIndex < 3) {
+          if (rankIndex === 0) {
+            polygon.setStyle({
+              fillColor: "#f59e0b",
+              fillOpacity: 0.3,
+              color: "#f59e0b",
+              weight: 4
+            });
+          } else {
+            polygon.setStyle({
+              fillColor: "#10b981",
+              fillOpacity: 0.25,
+              color: "#10b981",
+              weight: 3.5
+            });
+          }
+        } else {
+          polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+        }
+      } else {
+        polygon.setStyle(getLeafletPolygonStyle(kavel.id));
+      }
+    }
+  });
+}
+
 function updateMapHighlighting(matches) {
-  // Verwijder eerst alle match-klassen
+  // Verwijder match-klassen op SVG
   const kavelElements = document.querySelectorAll(".svg-kavel");
   kavelElements.forEach(el => {
     el.classList.remove("top-match");
@@ -361,45 +653,49 @@ function updateMapHighlighting(matches) {
     el.style.strokeWidth = "2";
   });
 
-  // Markeer de top 3 matches op de kaart
+  // Markeer de top 3 matches op SVG
   const validMatches = matches.filter(m => !m.isFiltered);
   validMatches.slice(0, 3).forEach((match, index) => {
     const kavelId = match.kavel.id;
     const el = document.getElementById(`svg-kavel-${kavelId}`);
     if (el) {
       el.classList.add("top-match");
-      // Kleuren op basis van ranking: 1e = goudachtig groen, 2e/3e = smaragdgroen
       if (index === 0) {
-        el.style.stroke = "#f59e0b"; // Gold/amber border
+        el.style.stroke = "#f59e0b"; // Goud/amber
         el.style.strokeWidth = "3.5";
       } else {
-        el.style.stroke = "#10b981"; // Emerald green
+        el.style.stroke = "#10b981"; // Smaragdgroen
         el.style.strokeWidth = "3";
       }
     }
   });
+
+  // Synchroniseer met Leaflet satellietkaart
+  updateLeafletHighlighting(matches);
 }
 
 function selectKavel(id) {
   selectedKavelId = id;
   
-  // Reset selectie op kaart
+  // Reset selectie op SVG
   document.querySelectorAll(".svg-kavel").forEach(el => {
     el.classList.remove("selected");
   });
 
-  // Highlight actieve kavel op kaart
+  // Highlight actieve kavel op SVG
   const activeEl = document.getElementById(`svg-kavel-${id}`);
   if (activeEl) {
     activeEl.classList.add("selected");
   }
+
+  // Highlight actieve kavel op Leaflet
+  highlightLeafletPolygon(id);
 
   // Highlight actieve kavel in de resultatenlijst
   document.querySelectorAll(".match-card").forEach(card => {
     card.classList.remove("active");
     if (card.getAttribute("data-kavel-id") == id) {
       card.classList.add("active");
-      // Scroll card in view smoothly
       card.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   });
