@@ -46,10 +46,10 @@
       
       <!-- Welcome panel shown before starting -->
       <div id="wizard-welcome" class="welcome-panel">
-        <h1>Vind uw kavel in De Krijgsman Muiden</h1>
+        <h1>Vind uw kavel op De Eilanden</h1>
         <p>
-          Het kiezen van een bouwlocatie kan complex zijn door het grote aanbod en de unieke voorschriften per plandeel (Kruitpadwal, Het Bos, De Eilanden). 
-          HuisDNA matcht uw levensstijl en wensen met het 'DNA' van de kavels. Vind binnen 2 minuten uw Top 3.
+          Het kiezen van een bouwlocatie op het exclusieve eiland plandeel 'De Eilanden' in De Krijgsman Muiden kan complex zijn. 
+          HuisDNA matcht uw levensstijl en wensen met het 'DNA' van de 22 kavels. Vind binnen 2 minuten uw Top 3.
         </p>
         <button id="btn-start-wizard" class="btn-primary">
           Start Lifestyle Matcher <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><path d="M12 16v-3" /><path d="M9 16v-4a3 3 0 0 1 6 0v4" /><path d="M6 18v-6a6 6 0 0 1 12 0v6" /><path d="M3 20v-8a9 9 0 0 1 18 0v8" /></svg>
@@ -309,45 +309,62 @@
               <button id="map-toggle-satellite" class="map-toggle-btn" role="radio" aria-checked="false" title="Satellietfotoweergave (Leaflet)">Satelliet</button>
             </div>
             <span id="matching-status-badge" style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-tertiary); padding: 0.25rem 0.75rem; border-radius: 1rem;">
-              12 kavels geladen
+              22 kavels geladen
             </span>
           </div>
 
           <!-- Interactive SVG neighborhood map -->
           <div class="map-canvas-container">
-            <svg id="interactive-neighborhood" viewBox="0 0 800 450" width="800" height="450">
+            <svg id="interactive-neighborhood" viewBox="0 0 950 500" width="950" height="500">
               <defs>
                 <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#1d4ed8" />
                   <stop offset="100%" stop-color="#1e40af" />
                 </linearGradient>
+                <pattern id="soldPattern" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                  <rect width="12" height="12" fill="#334155" />
+                  <line x1="0" y1="0" x2="0" y2="12" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2" />
+                </pattern>
+                <pattern id="soldPatternLight" width="12" height="12" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                  <rect width="12" height="12" fill="#cbd5e1" />
+                  <line x1="0" y1="0" x2="0" y2="12" stroke="rgba(15, 45, 89, 0.15)" stroke-width="2" />
+                </pattern>
               </defs>
               
               <!-- Background / Ground -->
-              <rect width="800" height="450" fill="var(--bg-primary)" />
+              <rect width="950" height="500" fill="var(--bg-primary)" />
               
-              <!-- Muidertrekvaart Canal at the bottom -->
-              <rect x="0" y="380" width="800" height="70" class="svg-water" fill="url(#waterGrad)" />
-              <text x="400" y="420" fill="#93c5fd" font-size="14" font-weight="bold" text-anchor="middle" opacity="0.6">MUIDERTREKVAART (KANAAL)</text>
+              <!-- Waterways surrounding the island -->
+              <rect x="0" y="0" width="100" height="500" class="svg-water" fill="url(#waterGrad)" />
+              <rect x="100" y="0" width="850" height="90" class="svg-water" fill="url(#waterGrad)" />
+              <rect x="100" y="410" width="850" height="90" class="svg-water" fill="url(#waterGrad)" />
+              
+              <!-- Waterway Labels -->
+              <text x="50" y="250" fill="#93c5fd" font-size="12" font-weight="bold" text-anchor="middle" transform="rotate(-90 50 250)" opacity="0.6">ZIJGRACHT</text>
+              <text x="525" y="55" fill="#93c5fd" font-size="14" font-weight="bold" text-anchor="middle" opacity="0.6">KRUITVAART (HOOFDVAARWATER)</text>
+              <text x="525" y="460" fill="#93c5fd" font-size="14" font-weight="bold" text-anchor="middle" opacity="0.6">ZUIDELIJKE GRacht</text>
 
-              <!-- Forest/Park on the center-left -->
-              <path d="M 50 50 Q 250 20 400 120 Q 420 280, 300 320 Q 150 350, 50 280 Z" class="svg-green" />
-              <text x="220" y="160" fill="#a7f3d0" font-size="12" font-weight="bold" text-anchor="middle" opacity="0.5">HET BOS (NATUURRIJK WONEN)</text>
-              
-              <!-- Water Channels for De Eilanden (Top-Right) -->
-              <path d="M 450 0 C 470 120, 520 180, 600 220 L 800 220 L 800 250 L 580 250 C 490 200, 440 120, 420 0 Z" class="svg-water" fill="url(#waterGrad)" />
-              <path d="M 600 220 C 630 150, 700 80, 800 50 L 800 80 C 710 110, 650 170, 620 220 Z" class="svg-water" fill="url(#waterGrad)" opacity="0.85" />
-              <text x="700" y="40" fill="#93c5fd" font-size="12" font-weight="bold" text-anchor="middle" opacity="0.5">PLANDEEL DE EILANDEN</text>
+              <!-- Left Bridges (3) and Bottom-Right Bridge (1) -->
+              <rect x="60" y="110" width="40" height="20" rx="3" class="svg-bridge" />
+              <rect x="60" y="230" width="40" height="20" rx="3" class="svg-bridge" />
+              <rect x="60" y="350" width="40" height="20" rx="3" class="svg-bridge" />
+              <rect x="720" y="390" width="20" height="40" rx="3" class="svg-bridge" />
 
-              <!-- Connecting Road -->
-              <path d="M 0 100 C 150 120, 300 80, 450 150 C 500 180, 480 280, 500 320 L 500 380" fill="none" stroke="var(--bg-tertiary)" stroke-width="26" stroke-linecap="round" opacity="0.8" />
-              <path d="M 0 100 C 150 120, 300 80, 450 150 C 500 180, 480 280, 500 320 L 500 380" fill="none" stroke="#475569" stroke-width="20" stroke-linecap="round" />
-              <path d="M 0 100 C 150 120, 300 80, 450 150 C 500 180, 480 280, 500 320 L 500 380" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 15" stroke-linecap="round" />
-              <text x="210" y="362" fill="var(--text-secondary)" font-size="11" font-weight="bold" opacity="0.7">KRUITPADWAL (WOONLINT)</text>
+              <!-- Central Road: Rietpolderlaan -->
+              <path d="M 100 240 H 680 Q 730 240 730 290 V 410" fill="none" stroke="var(--bg-tertiary)" stroke-width="26" stroke-linecap="round" opacity="0.8" />
+              <path d="M 100 240 H 680 Q 730 240 730 290 V 410" fill="none" stroke="#475569" stroke-width="20" stroke-linecap="round" />
+              <path d="M 100 240 H 680 Q 730 240 730 290 V 410" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 15" stroke-linecap="round" />
+              <text x="350" y="245" fill="var(--text-secondary)" font-size="11" font-weight="bold" opacity="0.7">RIETPOLDERLAAN</text>
               
-              <!-- Children Playground Area inside Het Bos -->
-              <circle cx="120" cy="90" r="25" class="svg-playground" />
-              <text x="120" y="93" fill="#fbd38d" font-size="9" font-weight="bold" text-anchor="middle" opacity="0.8">SPEELVELD</text>
+              <!-- Location Marker: JE STAAT HIER -->
+              <g class="user-location-marker">
+                <circle cx="520" cy="240" r="10" class="location-pulse-bg" />
+                <circle cx="520" cy="240" r="6" class="location-dot" />
+                <g transform="translate(520, 215)">
+                  <rect x="-45" y="-12" width="90" height="20" rx="4" fill="#ef4444" />
+                  <text x="0" y="2" fill="#ffffff" font-size="8" font-weight="bold" text-anchor="middle">JE STAAT HIER</text>
+                </g>
+              </g>
 
               <!-- Dynamic Kavels Group (Rendered by JS) -->
               <g id="svg-kavels-group"></g>
@@ -479,9 +496,9 @@
             <div class="form-group" style="margin-bottom:0;">
               <label for="apply-to-kavel-select" style="display:inline-block; margin-right: 0.5rem;">Toepassen op kavels:</label>
               <select id="apply-to-kavel-select" style="background:var(--bg-tertiary); color:var(--text-primary); border:1px solid var(--border-color); padding:0.4rem; border-radius:0.5rem;">
-                <option value="1,2,3,4">Kavel 1 t/m 4 (Kruitpadwal)</option>
-                <option value="5,6,7,8">Kavel 5 t/m 8 (Het Bos)</option>
-                <option value="9,10,11,12">Kavel 9 t/m 12 (De Eilanden)</option>
+                <option value="1,2,3,4,5,6,7">Kavels 1 t/m 7 (Zuidzijde - Fase 1)</option>
+                <option value="8,9,10,11,12,13,14,15">Kavels 8 t/m 15 (Noordzijde - Fase 1)</option>
+                <option value="16,17,18,19,20,21,22">Kavels 16 t/m 22 (Fase 2)</option>
               </select>
             </div>
             

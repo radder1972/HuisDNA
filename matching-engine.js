@@ -18,14 +18,20 @@ function calculateMatches(preferences, kavels) {
     let filterReason = "";
 
     // --- 1. HARDE CRITERIA (FILTERS) ---
-    // A. Budget
-    if (preferences.budget && kavel.price > preferences.budget) {
+    // A. Status (alleen beschikbare kavels zijn matchbaar)
+    if (kavel.status === 'sold') {
+      isFiltered = true;
+      filterReason = "Kavel is verkocht of onder optie";
+    }
+
+    // B. Budget
+    if (!isFiltered && preferences.budget && kavel.price > preferences.budget) {
       isFiltered = true;
       filterReason = `Prijs (€${kavel.price.toLocaleString('nl-NL')}) ligt boven uw budget (€${preferences.budget.toLocaleString('nl-NL')})`;
     }
 
-    // B. Woningtype
-    if (preferences.houseType && preferences.houseType !== "Geen voorkeur") {
+    // C. Woningtype
+    if (!isFiltered && preferences.houseType && preferences.houseType !== "Geen voorkeur") {
       if (!kavel.houseTypes.includes(preferences.houseType)) {
         isFiltered = true;
         filterReason = `Kavel staat geen ${preferences.houseType.toLowerCase()} toe (alleen ${kavel.houseTypes.join(', ')})`;

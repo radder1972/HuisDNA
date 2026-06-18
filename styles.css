@@ -587,10 +587,32 @@ svg .svg-kavel {
   transition: all 0.3s ease;
 }
 
+svg .svg-kavel.available {
+  fill: #d97706; /* Rich amber/gold */
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+svg .svg-kavel.sold {
+  fill: url(#soldPattern) !important;
+  stroke: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+}
+
 svg .svg-kavel:hover {
   fill: rgba(76, 194, 165, 0.2);
   stroke: var(--accent-color);
   stroke-width: 3;
+}
+
+svg .svg-kavel.available:hover {
+  fill: #f59e0b;
+  stroke: var(--accent-color);
+}
+
+svg .svg-kavel.sold:hover {
+  /* No hover highlight color for sold plots */
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 2;
 }
 
 svg .svg-kavel.selected {
@@ -600,18 +622,35 @@ svg .svg-kavel.selected {
   filter: drop-shadow(0 0 8px rgba(76, 194, 165, 0.4));
 }
 
+svg .svg-kavel.available.selected {
+  fill: rgba(245, 158, 11, 0.25);
+  stroke: #f59e0b;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+}
+
 svg .svg-kavel.top-match {
   animation: pulse-border 2s infinite;
 }
 
 svg .svg-kavel-label {
-  fill: #ffffff; /* White text on dark backgrounds */
   font-size: 14px;
   font-family: 'Outfit', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   text-anchor: middle;
   pointer-events: none;
   transition: fill var(--transition-speed);
+}
+
+/* Dark Theme Label contrast (Default) */
+svg .svg-kavel-label.available {
+  fill: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+svg .svg-kavel-label.sold {
+  fill: #ffffff;
+  opacity: 0.8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Light Theme overrides for Map readability */
@@ -620,8 +659,22 @@ svg .svg-kavel-label {
   stroke: rgba(15, 45, 89, 0.15);
 }
 
+[data-theme="light"] svg .svg-kavel.available {
+  fill: #f59e0b; /* Bright amber/gold */
+  stroke: rgba(15, 45, 89, 0.15);
+}
+
+[data-theme="light"] svg .svg-kavel.sold {
+  fill: url(#soldPatternLight) !important;
+  stroke: rgba(15, 45, 89, 0.1);
+}
+
 [data-theme="light"] svg .svg-kavel:hover {
   fill: rgba(76, 194, 165, 0.15);
+}
+
+[data-theme="light"] svg .svg-kavel.available:hover {
+  fill: #fbbf24;
 }
 
 [data-theme="light"] svg .svg-kavel.selected {
@@ -629,8 +682,59 @@ svg .svg-kavel-label {
   filter: drop-shadow(0 0 8px rgba(76, 194, 165, 0.2));
 }
 
-[data-theme="light"] svg .svg-kavel-label {
-  fill: #0f2d59; /* Dark navy text on light backgrounds */
+[data-theme="light"] svg .svg-kavel.available.selected {
+  fill: rgba(245, 158, 11, 0.15);
+  stroke: #f59e0b;
+}
+
+[data-theme="light"] svg .svg-kavel-label.available {
+  fill: #000000; /* Black text on gold available plots in light theme */
+}
+
+[data-theme="light"] svg .svg-kavel-label.sold {
+  fill: #000000; /* Black text on light-gray sold plots in light theme */
+}
+
+/* Bridges styling */
+svg .svg-bridge {
+  fill: #475569;
+  stroke: #94a3b8;
+  stroke-width: 2;
+  opacity: 0.95;
+}
+
+[data-theme="light"] svg .svg-bridge {
+  fill: #cbd5e1;
+  stroke: #64748b;
+}
+
+/* User Location Marker styling */
+.user-location-marker {
+  pointer-events: none;
+}
+
+.location-pulse-bg {
+  fill: #ef4444;
+  opacity: 0.4;
+  animation: location-pulse 2s infinite ease-out;
+  transform-origin: 520px 240px;
+}
+
+.location-dot {
+  fill: #ef4444;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+@keyframes location-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }
 
 svg .svg-water {

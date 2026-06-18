@@ -358,27 +358,33 @@ function renderMapKavels() {
   const g = document.getElementById("svg-kavels-group");
   g.innerHTML = "";
 
+  // Dynamic status badge count
+  const statusBadge = document.getElementById("matching-status-badge");
+  if (statusBadge) {
+    statusBadge.textContent = `${kavels.length} kavels geladen`;
+  }
+
   kavels.forEach(kavel => {
     const coords = kavel.coordinates;
     
     // Maak een group aan voor transformatie (rotatie & positie)
     const kavelGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
     kavelGroup.setAttribute("transform", `translate(${coords.x}, ${coords.y}) rotate(${coords.rotation || 0})`);
-    kavelGroup.setAttribute("class", "svg-kavel-wrapper");
+    kavelGroup.setAttribute("class", `svg-kavel-wrapper ${kavel.status}`);
     kavelGroup.setAttribute("data-id", kavel.id);
 
     // Kavel rechthoek
     const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     rect.setAttribute("width", coords.width);
     rect.setAttribute("height", coords.height);
-    rect.setAttribute("class", "svg-kavel");
+    rect.setAttribute("class", `svg-kavel ${kavel.status}`);
     rect.setAttribute("id", `svg-kavel-${kavel.id}`);
     
     // Label kavelnummer
     const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
     label.setAttribute("x", coords.width / 2);
     label.setAttribute("y", coords.height / 2 + 4);
-    label.setAttribute("class", "svg-kavel-label");
+    label.setAttribute("class", `svg-kavel-label ${kavel.status}`);
     label.textContent = kavel.id;
 
     kavelGroup.appendChild(rect);
@@ -386,6 +392,7 @@ function renderMapKavels() {
     
     // Click en Hover events
     kavelGroup.addEventListener("click", () => {
+      if (kavel.status === 'sold') return; // Sold plots cannot be selected
       selectKavel(kavel.id);
     });
 
@@ -395,11 +402,11 @@ function renderMapKavels() {
 
 // --- LEAFLET SATELLIETKAART (OPTIE B) FUNCTIES ---
 function initLeafletMap() {
-  // Centreer op De Krijgsman Muiden (coördinaten: 52.3303, 5.0632)
+  // Centreer op De Eilanden island in De Krijgsman Muiden (coördinaten: 52.3340, 5.0645)
   leafletMap = L.map('leaflet-map', {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView([52.3303, 5.0632], 16);
+  }).setView([52.3340, 5.0645], 17);
   
   // Activeer zoom pas na focus
   leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });
@@ -428,10 +435,19 @@ function initLeafletMap() {
 }
 
 function getLeafletPolygonStyle(kavelId) {
+  const kavel = kavels.find(k => k.id === kavelId);
   const isLight = document.documentElement.getAttribute("data-theme") === "light";
-  const defaultFillColor = isLight ? "#e2e8f0" : "#1a2c4e";
-  const defaultStrokeColor = isLight ? "rgba(15, 45, 89, 0.25)" : "rgba(255, 255, 255, 0.25)";
   const isSelected = selectedKavelId === kavelId;
+  
+  if (kavel && kavel.status === 'sold') {
+    return {
+      fillColor: isLight ? "#cbd5e1" : "#334155",
+      fillOpacity: 0.45,
+      color: isLight ? "rgba(15, 45, 89, 0.2)" : "rgba(255, 255, 255, 0.15)",
+      weight: 1.5,
+      dashArray: "3, 5"
+    };
+  }
   
   if (isSelected) {
     return {
@@ -443,9 +459,9 @@ function getLeafletPolygonStyle(kavelId) {
   }
   
   return {
-    fillColor: defaultFillColor,
-    fillOpacity: 0.5,
-    color: defaultStrokeColor,
+    fillColor: isLight ? "#f59e0b" : "#d97706",
+    fillOpacity: 0.4,
+    color: isLight ? "#d97706" : "#fbbf24",
     weight: 2
   };
 }
@@ -463,7 +479,11 @@ function renderLeafletPolygons() {
     const polygon = L.polygon(kavel.gpsPolygon, getLeafletPolygonStyle(kavel.id));
     
     // Voeg tooltip toe
-    polygon.bindTooltip(`<strong>${kavel.name}</strong><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`, {
+    const tooltipText = kavel.status === 'sold' 
+      ? `<strong>${kavel.name}</strong><br><span style="color:#ef4444;font-weight:700;">Verkocht / Onder Optie</span>`
+      : `<strong>${kavel.name}</strong><br>€ ${kavel.price.toLocaleString('nl-NL')} v.o.n.`;
+      
+    polygon.bindTooltip(tooltipText, {
       className: 'leaflet-tooltip-huisdna',
       direction: 'top',
       sticky: true
@@ -471,6 +491,7 @@ function renderLeafletPolygons() {
     
     // Hover-effecten
     polygon.on('mouseover', () => {
+      if (kavel.status === 'sold') return; // Sold plots don't highlight on hover
       if (selectedKavelId !== kavel.id) {
         polygon.setStyle({
           fillColor: "#4cc2a5",
@@ -482,6 +503,7 @@ function renderLeafletPolygons() {
     });
     
     polygon.on('mouseout', () => {
+      if (kavel.status === 'sold') return; // Sold plots don't trigger mouseout highlights
       const isSelected = selectedKavelId === kavel.id;
       if (isSelected) {
         polygon.setStyle(getLeafletPolygonStyle(kavel.id));
@@ -526,6 +548,7 @@ function renderLeafletPolygons() {
     });
     
     polygon.on('click', () => {
+      if (kavel.status === 'sold') return; // Sold plots cannot be selected
       selectKavel(kavel.id);
     });
     
