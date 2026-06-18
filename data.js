@@ -21,27 +21,27 @@ const initialKavels = [
     "description": "Ruime oeverkavel aan de zuidzijde van het eiland. Prachtig uitzicht over het brede vaarwater en ruimte voor een eigen aanlegsteiger.",
     "coordinates": {
       "x": 515,
-      "y": 256,
+      "y": 215,
       "width": 45,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0554
+        5.0632
       ],
       [
         52.3345,
-        5.0554
+        5.0632
       ],
       [
         52.3345,
-        5.0557
+        5.0635
       ],
       [
         52.3341,
-        5.0557
+        5.0635
       ]
     ]
   },
@@ -66,27 +66,27 @@ const initialKavels = [
     "description": "Zongeoriënteerde geschakelde villa met een tuin grenzend aan het water. Uitstekend gesitueerd nabij de oostelijke toegangsbrug.",
     "coordinates": {
       "x": 470,
-      "y": 256,
+      "y": 215,
       "width": 45,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0551
+        5.0629
       ],
       [
         52.3345,
-        5.0551
+        5.0629
       ],
       [
         52.3345,
-        5.0554
+        5.0632
       ],
       [
         52.3341,
-        5.0554
+        5.0632
       ]
     ]
   },
@@ -111,27 +111,27 @@ const initialKavels = [
     "description": "Compacte doch riante geschakelde oevervilla aan de zuidelijke gracht. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 415,
-      "y": 256,
+      "y": 215,
       "width": 45,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0547
+        5.0625
       ],
       [
         52.3345,
-        5.0547
+        5.0625
       ],
       [
         52.3345,
-        5.055
+        5.0628
       ],
       [
         52.3341,
-        5.055
+        5.0628
       ]
     ]
   },
@@ -156,27 +156,27 @@ const initialKavels = [
     "description": "Geschakelde grachtenvilla met een gunstige hoekligging en overtuin. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 370,
-      "y": 256,
+      "y": 215,
       "width": 45,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0544
+        5.0622
       ],
       [
         52.3345,
-        5.0544
+        5.0622
       ],
       [
         52.3345,
-        5.0547
+        5.0625
       ],
       [
         52.3341,
-        5.0547
+        5.0625
       ]
     ]
   },
@@ -201,27 +201,27 @@ const initialKavels = [
     "description": "Prachtige vrijstaande villa op een riante kavel met optimale bezonning en weids uitzicht. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 295,
-      "y": 256,
+      "y": 215,
       "width": 65,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0538
+        5.0616
       ],
       [
         52.3345,
-        5.0538
+        5.0616
       ],
       [
         52.3345,
-        5.0543
+        5.0621
       ],
       [
         52.3341,
-        5.0543
+        5.0621
       ]
     ]
   },
@@ -246,27 +246,27 @@ const initialKavels = [
     "description": "Een van de meest gewilde vrijstaande kavels op het eiland. Direct gelegen aan de zuidelijke waterweg met perfecte zoninval.",
     "coordinates": {
       "x": 225,
-      "y": 256,
+      "y": 215,
       "width": 65,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0532
+        5.061
       ],
       [
         52.3345,
-        5.0532
+        5.061
       ],
       [
         52.3345,
-        5.0537
+        5.0615
       ],
       [
         52.3341,
-        5.0537
+        5.0615
       ]
     ]
   },
@@ -291,27 +291,27 @@ const initialKavels = [
     "description": "Exclusieve hoekkavel aan de westelijke zijgracht. Maximale privacy door de hoekligging en omliggend groen. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 150,
-      "y": 256,
+      "y": 215,
       "width": 65,
-      "height": 130,
+      "height": 83,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3341,
-        5.0527
+        5.0605
       ],
       [
         52.3345,
-        5.0527
+        5.0605
       ],
       [
         52.3345,
-        5.0531
+        5.0609
       ],
       [
         52.3341,
-        5.0531
+        5.0609
       ]
     ]
   },
@@ -336,27 +336,27 @@ const initialKavels = [
     "description": "Prachtige hoekkavel aan de noordwestzijde van het eiland. Directe ligging aan de brede Kruitvaart met een fantastisch uitzicht over de grachten.",
     "coordinates": {
       "x": 150,
-      "y": 100,
+      "y": 145,
       "width": 65,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0527
+        5.0605
       ],
       [
         52.3351,
-        5.0527
+        5.0605
       ],
       [
         52.3351,
-        5.0531
+        5.0609
       ],
       [
         52.3347,
-        5.0531
+        5.0609
       ]
     ]
   },
@@ -381,27 +381,27 @@ const initialKavels = [
     "description": "Vrijstaande oeverkavel aan de Kruitvaart. Perfecte plek voor bootliefhebbers met ruimte voor een riante steiger en sloep direct aan uw tuin.",
     "coordinates": {
       "x": 225,
-      "y": 100,
+      "y": 145,
       "width": 65,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0532
+        5.061
       ],
       [
         52.3351,
-        5.0532
+        5.061
       ],
       [
         52.3351,
-        5.0537
+        5.0615
       ],
       [
         52.3347,
-        5.0537
+        5.0615
       ]
     ]
   },
@@ -426,27 +426,27 @@ const initialKavels = [
     "description": "Compacte geschakelde villa met een tuin direct grenzend aan de Kruitvaart. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 295,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0538
+        5.0616
       ],
       [
         52.3351,
-        5.0538
+        5.0616
       ],
       [
         52.3351,
-        5.0541
+        5.0619
       ],
       [
         52.3347,
-        5.0541
+        5.0619
       ]
     ]
   },
@@ -471,27 +471,27 @@ const initialKavels = [
     "description": "Geschakelde villa met fraaie zichtlijnen over het water van de Kruitvaart. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 340,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0541
+        5.0619
       ],
       [
         52.3351,
-        5.0541
+        5.0619
       ],
       [
         52.3351,
-        5.0544
+        5.0622
       ],
       [
         52.3347,
-        5.0544
+        5.0622
       ]
     ]
   },
@@ -516,27 +516,27 @@ const initialKavels = [
     "description": "Comfortabele en lichte geschakelde villa. Biedt uitstekende zonuren op de oeverterras en heeft een eigen sloepaanlegplaats.",
     "coordinates": {
       "x": 395,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0545
+        5.0623
       ],
       [
         52.3351,
-        5.0545
+        5.0623
       ],
       [
         52.3351,
-        5.0548
+        5.0626
       ],
       [
         52.3347,
-        5.0548
+        5.0626
       ]
     ]
   },
@@ -561,27 +561,27 @@ const initialKavels = [
     "description": "Ruime twee-onder-een-kapvilla met oprit voor twee auto's. Direct grenzend aan de Kruitvaart met perfect vaarwater voor de deur.",
     "coordinates": {
       "x": 440,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0548
+        5.0626
       ],
       [
         52.3351,
-        5.0548
+        5.0626
       ],
       [
         52.3351,
-        5.0551
+        5.0629
       ],
       [
         52.3347,
-        5.0551
+        5.0629
       ]
     ]
   },
@@ -606,27 +606,27 @@ const initialKavels = [
     "description": "Geschakelde villa gelegen nabij de centrale brug. Riant terras aan het water en weids uitzicht over de noordelijke Kruitvaart.",
     "coordinates": {
       "x": 495,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0552
+        5.063
       ],
       [
         52.3351,
-        5.0552
+        5.063
       ],
       [
         52.3351,
-        5.0555
+        5.0633
       ],
       [
         52.3347,
-        5.0555
+        5.0633
       ]
     ]
   },
@@ -651,27 +651,27 @@ const initialKavels = [
     "description": "Ideaal gelegen tussenkavel direct aan het vaarwater. Uitstekende indeling met veel daglichtinval op de begane grond.",
     "coordinates": {
       "x": 540,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
       [
         52.3347,
-        5.0555
+        5.0633
       ],
       [
         52.3351,
-        5.0555
+        5.0633
       ],
       [
         52.3351,
-        5.0558
+        5.0636
       ],
       [
         52.3347,
-        5.0558
+        5.0636
       ]
     ]
   },
@@ -696,9 +696,9 @@ const initialKavels = [
     "description": "Fase 2 - Exclusieve vrijstaande watervilla op een zeer ruime kavel. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 595,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -741,9 +741,9 @@ const initialKavels = [
     "description": "Fase 2 - Royale vrijstaande kavel met tuin aan de Kruitvaart. Perfect gesitueerd ten opzichte van de wijkentree. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 640,
-      "y": 100,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -786,9 +786,9 @@ const initialKavels = [
     "description": "Fase 2 - Geschakelde villa met een tuin direct grenzend aan de Kruitvaart en prachtig uitzicht.",
     "coordinates": {
       "x": 695,
-      "y": 110,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -831,9 +831,9 @@ const initialKavels = [
     "description": "Fase 2 - Ruime twee-onder-een-kap oevervilla met uitstekende indeling en eigen insteekhaven voor boot.",
     "coordinates": {
       "x": 740,
-      "y": 110,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -876,9 +876,9 @@ const initialKavels = [
     "description": "Fase 2 - Riant geschakeld perceel op het einde van de straat met optimaal zicht over de splitsing in de Kruitvaart.",
     "coordinates": {
       "x": 795,
-      "y": 120,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -921,9 +921,9 @@ const initialKavels = [
     "description": "Fase 2 - Uitzonderlijk brede twee-onder-een-kapkavel grenzend aan open vaarwater richting de Vecht.",
     "coordinates": {
       "x": 840,
-      "y": 120,
+      "y": 145,
       "width": 45,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -966,9 +966,9 @@ const initialKavels = [
     "description": "Fase 2 - De ultieme Kroonvilla op de uiterste oostpunt van het eiland. Maximaal perceeloppervlak en rondom uitzicht over water. (Verkocht/Onder Optie).",
     "coordinates": {
       "x": 895,
-      "y": 120,
+      "y": 145,
       "width": 50,
-      "height": 130,
+      "height": 70,
       "rotation": 0
     },
     "gpsPolygon": [
@@ -994,12 +994,8 @@ const initialKavels = [
 
 const sampleDSOTexts = [
   {
-    title: "De Eilanden (Kavels 1 t/m 22) - DSO Omgevingsplan",
-    text: `ARTIKEL 16.5: EXCLUSIEVE WATERKAVELS PLANDEEL DE EILANDEN
-a. Voor de riante villa-eilanden is een bebouwingspercentage van maximaal 70% van het perceel toegestaan.
-b. De maximale nokhoogte bedraagt 11,00 meter vanaf peil, met een goothoogte van maximaal 6,00 meter.
-c. Binnen plandeel De Eilanden zijn uitsluitend vrijstaande woningen (villa's) of twee-onder-een-kapwoningen toegestaan conform de kavelkaart.
-d. Aanlegsteigers voor pleziervaartuigen zijn toegestaan tot een lengte van 6,00 meter, mits deze binnen de eigen perceelgrens vallen en het vaarverkeer niet hinderen.`
+    "title": "De Eilanden (Kavels 1 t/m 22) - DSO Omgevingsplan",
+    "text": "ARTIKEL 16.5: EXCLUSIEVE WATERKAVELS PLANDEEL DE EILANDEN\na. Voor de riante villa-eilanden is een bebouwingspercentage van maximaal 70% van het perceel toegestaan.\nb. De maximale nokhoogte bedraagt 11,00 meter vanaf peil, met een goothoogte van maximaal 6,00 meter.\nc. Binnen plandeel De Eilanden zijn uitsluitend vrijstaande woningen (villa's) of twee-onder-een-kapwoningen toegestaan conform de kavelkaart.\nd. Aanlegsteigers voor pleziervaartuigen zijn toegestaan tot een lengte van 6,00 meter, mits deze binnen de eigen perceelgrens vallen en het vaarverkeer niet hinderen."
   }
 ];
 

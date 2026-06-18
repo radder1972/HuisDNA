@@ -402,11 +402,11 @@ function renderMapKavels() {
 
 // --- LEAFLET SATELLIETKAART (OPTIE B) FUNCTIES ---
 function initLeafletMap() {
-  // Centreer op het midden tussen de twee eilanden (IJsvogel & Wim Oudshoornstraat) van De Eilanden (coördinaten: 52.3348, 5.0600)
+  // Centreer op het midden van het eiland plandeel De Eilanden (coördinaten: 52.3347, 5.0625)
   leafletMap = L.map('leaflet-map', {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView([52.3348, 5.0600], 16);
+  }).setView([52.3347, 5.0625], 17);
   
   // Activeer zoom pas na focus
   leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });
