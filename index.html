@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HuisDNA - Vind uw ideale nieuwbouwkavel op basis van uw levensstijl en perceeleigenschappen met behulp van slimme matching en AI DSO-analyse.">
+  <title>HuisDNA | Nieuwbouw Perceelkiezer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header>
+    <!-- Top Bar: Logo & Bedrijfsnaam -->
+    <div class="top-bar">
+      <div class="logo-container">
+        <img class="logo-img" src="logo.png" alt="HuisDNA Logo">
+      </div>
+    </div>
+    
+    <!-- Navigation Bar: Knoppen / Tabs -->
+    <div class="nav-bar">
+      <nav class="nav-tabs" role="tablist">
+        <button id="tab-wizard" class="nav-tab active" role="tab" aria-selected="true" aria-controls="view-wizard">
+          Lifestyle Matcher
+        </button>
+        <button id="tab-dashboard" class="nav-tab" role="tab" aria-selected="false" aria-controls="view-dashboard">
+          Kavel DNA & Kaart
+        </button>
+        <button id="tab-playground" class="nav-tab" role="tab" aria-selected="false" aria-controls="view-playground">
+          AI Pre-processor
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    
+    <!-- SECTION 1: LIFESTYLE MATCHING WIZARD -->
+    <section id="view-wizard" class="app-view active" role="tabpanel" aria-labelledby="tab-wizard">
+      
+      <!-- Welcome panel shown before starting -->
+      <div id="wizard-welcome" class="welcome-panel">
+        <img src="logo.png" alt="HuisDNA Logo" style="height: 130px; width: auto; display: block; margin: 0 auto 2rem auto; mix-blend-mode: multiply;">
+        <h1>Vind uw perfecte nieuwbouwkavel</h1>
+        <p>
+          Het kiezen van een bouwlocatie kan complex zijn. HuisDNA matcht uw levensstijl en wensen 
+          met het fysieke en juridische 'DNA' van kavels binnen ons project. Neem 2 minuten de tijd en vind uw Top 3.
+        </p>
+        <button id="btn-start-wizard" class="btn-primary">
+          Start Lifestyle Matcher <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </button>
+      </div>
+
+      <!-- The Wizard Form Box -->
+      <div id="wizard-container" class="wizard-box" style="display: none;">
+        <div class="wizard-header">
+          <h3 id="wizard-step-title">Stap 1: Woningtype & Budget</h3>
+          <div class="wizard-steps-indicator" id="steps-indicator">
+            <span class="step-dot active"></span>
+            <span class="step-dot"></span>
+            <span class="step-dot"></span>
+            <span class="step-dot"></span>
+          </div>
+        </div>
+
+        <div class="wizard-body">
+          <form id="wizard-form" onsubmit="return false;">
+            
+            <!-- Step 1: Core parameters (Hard Filters) -->
+            <div id="step-1" class="wizard-step-content active">
+              <div class="form-group">
+                <label for="input-budget">Maximaal budget (€)</label>
+                <div class="form-desc">Kavels boven dit budget worden automatisch gefilterd.</div>
+                <div class="input-slider-wrapper">
+                  <input type="range" id="input-budget" min="250000" max="500000" step="10000" value="400000">
+                  <span class="slider-value" id="val-budget">€ 400.000</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Gewenst woningtype</label>
+                <div class="form-desc">Selecteer het type huis dat u wilt bouwen.</div>
+                <div class="options-grid">
+                  <label class="option-card selected">
+                    <input type="radio" name="input-housetype" value="Geen voorkeur" checked>
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="16"/><line x1="15" y1="22" x2="15" y2="16"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+                    </span>
+                    <span class="option-label">Geen voorkeur</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="input-housetype" value="Rijwoning">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 10l4-3 4 3v11H2z M10 10l4-3 4 3v11H10z M18 10l4-3 4 3v11H18z"/></svg>
+                    </span>
+                    <span class="option-label">Rijwoning</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="input-housetype" value="Twee-onder-een-kap">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 10l5-4 5 4v11H3z M13 10l5-4 5 4v11H13z"/><line x1="13" y1="6" x2="13" y2="21"/></svg>
+                    </span>
+                    <span class="option-label">2-onder-1-kap</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="input-housetype" value="Vrijstaand">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><circle cx="12" cy="7" r="1"/></svg>
+                    </span>
+                    <span class="option-label">Vrijstaand</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Outdoor Living (Garden & Sun) -->
+            <div id="step-2" class="wizard-step-content">
+              <div class="form-group">
+                <label>Gewenste perceelgrootte & buitenleven</label>
+                <div class="options-grid">
+                  <label class="option-card">
+                    <input type="radio" name="input-gardensize" value="1">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M10 22h4l1-6h-6z M12 2v14 M12 6c3 0 4-2 4-2 M12 10c-3 0-4-2-4-2"/></svg>
+                    </span>
+                    <span class="option-label">Compact & onderhoudsarm</span>
+                  </label>
+                  <label class="option-card selected">
+                    <input type="radio" name="input-gardensize" value="2" checked>
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 22v-8 M12 14c4 0 6-3 6-6s-2-5-6-5-6 2-6 5 2 6 6 6z"/></svg>
+                    </span>
+                    <span class="option-label">Gemiddelde gezinstuin</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="input-gardensize" value="3">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M8 22v-8 M8 14c4 0 5-2.5 5-5s-1.5-4-5-4-5 1.5-5 4 1 5 5 5z M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M15 3l-1-1 M21 3l1-1 M15 9l-1 1 M21 9l1 1"/></svg>
+                    </span>
+                    <span class="option-label">Riant & veel privacy</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 2rem;">
+                <label>Geef aan hoe belangrijk deze aspecten voor u zijn:</label>
+                
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Zonuren in de tuin</span>
+                    <span class="form-desc">Belangrijk voor zonaanbidders (tuinligging op het zuiden/zuidwesten)</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="sunlightImportance">
+                    <button type="button" class="weight-btn" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn active" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Perceelgrootte</span>
+                    <span class="form-desc">Belangrijk voor een ruime tuininrichting</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="outdoorImportance">
+                    <button type="button" class="weight-btn" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn active" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Location Factors (Liveliness, Privacy & Children) -->
+            <div id="step-3" class="wizard-step-content">
+              <div class="form-group">
+                <label>Gewenste sfeer & ligging</label>
+                <div class="options-grid">
+                  <label class="option-card selected">
+                    <input type="radio" name="input-atmosphere" value="1" checked>
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 22V10 M9 10l4-4 4 4 M9 13H5l4-4 4 4 M15 22v-8 M15 14l3-3 3 3"/></svg>
+                    </span>
+                    <span class="option-label">Rustig & in de luwte</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="input-atmosphere" value="2">
+                    <span class="option-icon">
+                      <svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 20h20 M12 2v14 M12 6l7 10H12z M5 16l7-10 M12 16H5z"/></svg>
+                    </span>
+                    <span class="option-label">Levendig & nabij water/weg</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 2rem;">
+                <label>Prioriteer omgevingskenmerken:</label>
+                
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Optimale privacy</span>
+                    <span class="form-desc">Voldoende afstand en afscherming van omliggende percelen</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="privacyImportance">
+                    <button type="button" class="weight-btn" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn active" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Nabijheid van speeltuinen</span>
+                    <span class="form-desc">Handig voor jonge gezinnen (binnen 100 meter loopafstand)</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="childFriendlyImportance">
+                    <button type="button" class="weight-btn" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn active" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Omgevingsdynamiek</span>
+                    <span class="form-desc">Korte afstand tot centrale toegang en water</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="livelinessImportance">
+                    <button type="button" class="weight-btn active" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Building Freedom & DSO regulations -->
+            <div id="step-4" class="wizard-step-content">
+              <div class="form-group">
+                <label>Bouwvrijheid en Toekomstplannen</label>
+                <p class="form-desc">
+                  Het omgevingsplan (DSO) stelt regels over wat u mag bouwen op het perceel. 
+                  Heeft u specifieke wensen zoals een uitbouw, serre of extra hoog woonhuis?
+                </p>
+                
+                <div class="checkbox-toggle-container">
+                  <input type="checkbox" id="input-buildingfreedom">
+                  <label for="input-buildingfreedom" style="display:inline; font-weight:600;">
+                    Ja, ik wil maximale bouwvrijheid (hoge nokhoogte en hoog bebouwingspercentage)
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <div class="weight-selector">
+                  <div class="weight-info">
+                    <span class="weight-title">Belang van uitbreidingsruimte</span>
+                    <span class="form-desc">Hoe zwaar weegt deze bouwvrijheid in de uiteindelijke kavelkeuze?</span>
+                  </div>
+                  <div class="weight-btn-group" data-pref="buildingFreedomImportance">
+                    <button type="button" class="weight-btn active" data-val="0">Niet</button>
+                    <button type="button" class="weight-btn" data-val="1">Middel</button>
+                    <button type="button" class="weight-btn" data-val="3">Must-have</button>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 0.75rem; text-align: center;">
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                  Gefeliciteerd, uw profiel is compleet! Klik op de knop om uw gepersonaliseerde matchingsresultaten te genereren.
+                </p>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="wizard-footer">
+          <button id="btn-wizard-prev" class="btn-secondary" style="visibility: hidden;">
+            <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; transform: rotate(180deg); margin-right: 0.25rem;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg> Terug
+          </button>
+          <button id="btn-wizard-next" class="btn-primary">
+            Volgende <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: INTERACTIVE DASHBOARD (MAP & LIST MATCHES) -->
+    <section id="view-dashboard" class="app-view" role="tabpanel" aria-labelledby="tab-dashboard">
+      <div class="dashboard-layout">
+        
+        <!-- Left Panel: The Map & List of Matches -->
+        <div class="dashboard-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">
+              <span class="panel-title-icon"><svg class="svg-icon" viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span> Projectplattegrond & Matches
+            </h3>
+            <span id="matching-status-badge" style="font-size: 0.85rem; color: var(--text-secondary); background: var(--bg-tertiary); padding: 0.25rem 0.75rem; border-radius: 1rem;">
+              12 kavels geladen
+            </span>
+          </div>
+
+          <!-- Interactive SVG neighborhood map -->
+          <div class="map-canvas-container">
+            <svg id="interactive-neighborhood" viewBox="0 0 800 450" width="800" height="450">
+              <defs>
+                <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1d4ed8" />
+                  <stop offset="100%" stop-color="#1e40af" />
+                </linearGradient>
+              </defs>
+              
+              <!-- Background / Ground -->
+              <rect width="800" height="450" fill="var(--bg-primary)" />
+              
+              <!-- Water Area on the left -->
+              <path d="M 0 0 L 70 0 Q 110 225 70 450 L 0 450 Z" class="svg-water" fill="url(#waterGrad)" />
+              <text x="35" y="225" fill="#93c5fd" font-size="14" font-weight="bold" transform="rotate(-90 35 225)" text-anchor="middle" opacity="0.6">HAVENKANAAL</text>
+
+              <!-- Forest/Park on the bottom -->
+              <path d="M 70 450 Q 300 380 520 450 Z" class="svg-green" />
+              <text x="250" y="430" fill="#a7f3d0" font-size="12" font-weight="bold" text-anchor="middle" opacity="0.5">PARKRAND BOSPLANTSOEN</text>
+              
+              <!-- Connecting Road -->
+              <path d="M 70 200 C 200 180, 400 240, 500 200 C 560 170, 560 100, 650 90 L 800 90" fill="none" stroke="var(--bg-tertiary)" stroke-width="26" stroke-linecap="round" opacity="0.8" />
+              <path d="M 70 200 C 200 180, 400 240, 500 200 C 560 170, 560 100, 650 90 L 800 90" fill="none" stroke="#475569" stroke-width="20" stroke-linecap="round" />
+              <path d="M 70 200 C 200 180, 400 240, 500 200 C 560 170, 560 100, 650 90 L 800 90" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 15" stroke-linecap="round" />
+              
+              <!-- Children Playground Area -->
+              <circle cx="80" cy="340" r="30" class="svg-playground" />
+              <text x="80" y="343" fill="#fbd38d" font-size="10" font-weight="bold" text-anchor="middle" opacity="0.8">SPEELVELD</text>
+
+              <!-- Dynamic Kavels Group (Rendered by JS) -->
+              <g id="svg-kavels-group"></g>
+            </svg>
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <h4 class="top-matches-headline" id="matches-list-title"><svg class="svg-icon" viewBox="0 0 24 24" style="margin-right: 0.25rem;"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Geselecteerde Matchingsresultaten</h4>
+            <div id="matching-results-list" class="matching-list">
+              <!-- Rendered dynamically -->
+              <div class="empty-state">Geen data geladen. Vul eerst de Lifestyle Matcher in!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: DNA Detail Inspector -->
+        <div class="dashboard-panel dna-details-panel">
+          <div class="panel-header">
+            <h3 class="panel-title"><svg class="svg-icon" viewBox="0 0 24 24" style="margin-right: 0.25rem;"><path d="M4.5 10.5C4.5 4.5 19.5 4.5 19.5 10.5 M4.5 13.5C4.5 19.5 19.5 19.5 19.5 13.5 M4.5 10.5l15 3 M4.5 13.5l15-3"/></svg> Kavel DNA Inspecteur</h3>
+            <span id="selected-kavel-badge" style="font-size: 0.75rem; font-weight:700; color: white; background: var(--brand-color); padding: 0.25rem 0.6rem; border-radius: 0.5rem; display:none;">
+              Geselecteerd
+            </span>
+          </div>
+
+          <div id="dna-empty-state" class="empty-state" style="margin-top: 5rem;">
+            <span style="display: block; margin-bottom: 1rem;"><svg class="svg-icon" viewBox="0 0 24 24" style="width:3rem; height:3rem;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+            <p style="margin-top: 1rem;">Klik op een kavel op de kaart of selecteer een match in de lijst om het volledige Kavel-DNA en de DSO-bouwregels in te zien.</p>
+          </div>
+
+          <!-- Dynamic DNA data view -->
+          <div id="dna-content" style="display: none;">
+            <h2 id="inspect-kavel-name" class="dna-kavel-title">Kavel 1</h2>
+            <div id="inspect-kavel-price" class="dna-price-tag">€ 325.000 v.o.n.</div>
+            <p id="inspect-kavel-desc" style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Kavelbeschrijving...</p>
+
+            <div class="dna-grid">
+              <div class="dna-metric">
+                <span class="metric-label">Oppervlakte</span>
+                <span class="metric-value" id="inspect-kavel-size">240 m²</span>
+              </div>
+              <div class="dna-metric">
+                <span class="metric-label">Tuinligging</span>
+                <span class="metric-value" id="inspect-kavel-orientation">Zuidwest</span>
+              </div>
+              <div class="dna-metric">
+                <span class="metric-label">Zonuren (Zomer)</span>
+                <span class="metric-value" id="inspect-kavel-sun">8,5 uur</span>
+              </div>
+              <div class="dna-metric">
+                <span class="metric-label">Woningtypes</span>
+                <span class="metric-value" id="inspect-kavel-types" style="font-size: 0.9rem; line-height: 1.2; padding-top: 4px;">Rijwoning</span>
+              </div>
+            </div>
+
+            <!-- Omgevingsplan (DSO Rules) -->
+            <div class="dso-box">
+              <div class="dso-header">
+                <svg class="svg-icon" viewBox="0 0 24 24" style="margin-right: 0.35rem;"><line x1="12" y1="2" x2="12" y2="22"/><line x1="5" y1="7" x2="19" y2="7"/><path d="M5 7l2 10h4L9 7z M15 7l2 10h4l-2-10z"/></svg> DSO Bouwregels (Bestemmingsplan)
+              </div>
+              <ul class="dso-rules-list">
+                <li class="dso-rule-item">
+                  <span class="dso-rule-label">Max. Bebouwingspercentage</span>
+                  <span class="dso-rule-value" id="inspect-dso-bebouwing">60%</span>
+                </li>
+                <li class="dso-rule-item">
+                  <span class="dso-rule-label">Maximale Nokhoogte</span>
+                  <span class="dso-rule-value" id="inspect-dso-nok">10,00 meter</span>
+                </li>
+                <li class="dso-rule-item">
+                  <span class="dso-rule-label">Maximale Goothoogte</span>
+                  <span class="dso-rule-value" id="inspect-dso-goot">6,00 meter</span>
+                </li>
+                <li class="dso-rule-item">
+                  <span class="dso-rule-label">Achtererf uitbreiding</span>
+                  <span class="dso-rule-value" id="inspect-dso-ext">max. 3,00 meter</span>
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Proximity metrics -->
+            <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted);">
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; align-items: center;">
+                <span style="display:flex; align-items:center; gap:0.35rem;"><svg class="svg-icon" viewBox="0 0 24 24" style="font-size:0.95rem;"><circle cx="12" cy="4" r="2"/><path d="M13.5 10l-1.5-3-3 1.5 M10 14l2 4 3-2 M7 21h4l1-6"/></svg> Afstand tot speelveld:</span>
+                <span id="inspect-dist-play" style="font-weight: 600;">80m</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; align-items: center;">
+                <span style="display:flex; align-items:center; gap:0.35rem;"><svg class="svg-icon" viewBox="0 0 24 24" style="font-size:0.95rem;"><path d="M1 12s4-3 11-3 11 3 11 3 M1 16s4-3 11-3 11 3 11 3"/></svg> Afstand tot water:</span>
+                <span id="inspect-dist-water" style="font-weight: 600;">20m</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items: center;">
+                <span style="display:flex; align-items:center; gap:0.35rem;"><svg class="svg-icon" viewBox="0 0 24 24" style="font-size:0.95rem;"><line x1="4" y1="2" x2="4" y2="22"/><line x1="20" y1="2" x2="20" y2="22"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="12" y1="20" x2="12" y2="22"/></svg> Afstand tot hoofdweg (wijkentree):</span>
+                <span id="inspect-dist-road" style="font-weight: 600;">120m</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: AI PRE-PROCESSOR PLAYGROUND -->
+    <section id="view-playground" class="app-view" role="tabpanel" aria-labelledby="tab-playground">
+      <div class="welcome-panel" style="margin: 1rem auto; text-align: left; max-width: 100%;">
+        <h2>AI DSO Vertaalmachine (Pre-processor)</h2>
+        <p style="font-size: 0.95rem;">
+          Overheidsdocumenten (DSO) bevatten complexe juridische teksten. Onze AI pre-processor analyseert deze teksten eenmalig bij de invoer van een nieuwbouwproject, extraheert de bouwvoorschriften en slaat dit op als Kavel-DNA in de database.
+        </p>
+      </div>
+
+      <div class="playground-layout">
+        
+        <!-- Left: Legal Text Editor -->
+        <div class="text-editor-container">
+          <div class="preset-selector">
+            <span style="font-weight: 600; font-size: 0.9rem;">Selecteer een voorbeeld DSO-document:</span>
+            <div class="preset-btn-group" id="dso-preset-group">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="form-group" style="flex-grow: 1; display:flex; flex-direction:column; margin-bottom:0;">
+            <label for="dso-raw-text">Ruwe Juridische DSO-Tekst</label>
+            <textarea id="dso-raw-text" class="dso-text-input" placeholder="Voer hier de juridische tekst over het bestemmings- of omgevingsplan in..."></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top: 1rem;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label for="apply-to-kavel-select" style="display:inline-block; margin-right: 0.5rem;">Toepassen op kavels:</label>
+              <select id="apply-to-kavel-select" style="background:var(--bg-tertiary); color:var(--text-primary); border:1px solid var(--border-color); padding:0.4rem; border-radius:0.5rem;">
+                <option value="1,2,3,4">Kavel 1 t/m 4 (Havenzicht)</option>
+                <option value="5,6,7,8">Kavel 5 t/m 8 (Parkrand)</option>
+                <option value="9,10,11,12">Kavel 9 t/m 12 (Zonnehof)</option>
+              </select>
+            </div>
+            
+            <button id="btn-run-ai" class="btn-primary">
+              Start AI Analyse <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5C4 22 6 21 7.5 19.5 M12 2C6 2 2 6 2 12c0 2.5.5 4.5 1.5 6l6.5-6.5 M22 2l-6.5 6.5 M18.5 7.5c1.5-1.5 2.5-3.5 2.5-5.5-2 0-4 1-5.5 2.5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: AI Console & Result -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="ai-console-box">
+            <div class="ai-console-header">
+              <span>🤖 LLM PRE-PROCESSOR CONSOLE</span>
+              <span class="ai-pulse-dot" id="console-pulse" style="display: none;"></span>
+            </div>
+            
+            <div class="ai-console-output" id="console-output">
+              <div class="console-line info">[Systeem] Wachten op DSO tekstinvoer...</div>
+              <div class="console-line">[Systeem] Selecteer links een preset en klik op 'Start AI Analyse'.</div>
+            </div>
+
+            <div class="ai-steps-progress" id="ai-steps-container">
+              <div class="ai-step-row pending" id="ai-step-1">
+                <span class="ai-step-icon">1</span>
+                <span>Scannen van overheidstekst</span>
+              </div>
+              <div class="ai-step-row pending" id="ai-step-2">
+                <span class="ai-step-icon">2</span>
+                <span>Bouwmaatvoeringen extraheren</span>
+              </div>
+              <div class="ai-step-row pending" id="ai-step-3">
+                <span class="ai-step-icon">3</span>
+                <span>Woningtypes & Beperkingen matchen</span>
+              </div>
+              <div class="ai-step-row pending" id="ai-step-4">
+                <span class="ai-step-icon">4</span>
+                <span>JSON Schema Valideren</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parsed JSON Output -->
+          <div id="ai-json-result-container" style="display: none;">
+            <h4 style="margin-bottom: 0.5rem; display:flex; justify-content:space-between;">
+              <span>📦 Kavel-DNA Output Schema (JSON)</span>
+              <span style="color:var(--accent-color); font-size:0.8rem; font-weight:normal;">Confidence Score: 96%</span>
+            </h4>
+            <pre class="json-output-box"><code id="ai-json-output">{}</code></pre>
+            <div class="admin-actions" style="margin-top: 1rem;">
+              <span style="font-size:0.8rem; color:var(--text-muted); align-self:center;">
+                ⚠️ Wijzigingen worden direct in het Kavel-DNA toegepast.
+              </span>
+              <button id="btn-apply-database" class="btn-primary" style="background:var(--accent-gradient); box-shadow:0 4px 15px rgba(76, 194, 165, 0.3);">
+                Opslaan in Kavel-DNA <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 HuisDNA | Nieuwbouw Perceelkiezer. Gebouwd met publieke PDOK- en Kadaster-API standaarden.</p>
+  </footer>
+
+  <!-- Background Helix Watermark -->
+  <div class="bg-helix-watermark" aria-hidden="true">
+    <svg viewBox="0 0 600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="helixGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="var(--accent-color)" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="var(--brand-color)" stop-opacity="0.4" />
+          <stop offset="100%" stop-color="var(--accent-color)" stop-opacity="0.8" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Fingerprint concentric arches in the center (logo inspiration) -->
+      <g transform="translate(300, 600)">
+        <path d="M -60 0 A 60 60 0 0 1 60 0" stroke="url(#helixGrad)" stroke-width="5" stroke-linecap="round" />
+        <path d="M -90 0 A 90 90 0 0 1 90 0" stroke="url(#helixGrad)" stroke-width="5" stroke-linecap="round" />
+        <path d="M -120 0 A 120 120 0 0 1 120 0" stroke="url(#helixGrad)" stroke-width="5" stroke-linecap="round" />
+        <path d="M -150 0 A 150 150 0 0 1 150 0" stroke="url(#helixGrad)" stroke-width="5" stroke-linecap="round" />
+        <path d="M -30 0 A 30 30 0 0 1 30 0" stroke="url(#helixGrad)" stroke-width="5" stroke-linecap="round" />
+      </g>
+      
+      <!-- Left Helix Strand -->
+      <path d="M 300 100 C 550 300, 550 500, 300 700 C 50 900, 50 1100, 300 1300" stroke="url(#helixGrad)" stroke-width="12" stroke-linecap="round" />
+      <!-- Right Helix Strand -->
+      <path d="M 300 300 C 50 500, 50 700, 300 900 C 550 1100, 550 1300, 300 1500" stroke="url(#helixGrad)" stroke-width="12" stroke-linecap="round" opacity="0.75" />
+      
+      <!-- Connecting DNA rungs -->
+      <line x1="180" y1="400" x2="420" y2="400" stroke="url(#helixGrad)" stroke-width="4" stroke-dasharray="6 12" stroke-linecap="round" />
+      <line x1="180" y1="600" x2="420" y2="600" stroke="url(#helixGrad)" stroke-width="4" stroke-dasharray="6 12" stroke-linecap="round" />
+      <line x1="180" y1="800" x2="420" y2="800" stroke="url(#helixGrad)" stroke-width="4" stroke-dasharray="6 12" stroke-linecap="round" />
+      <line x1="180" y1="1000" x2="420" y2="1000" stroke="url(#helixGrad)" stroke-width="4" stroke-dasharray="6 12" stroke-linecap="round" />
+      <line x1="180" y1="1200" x2="420" y2="1200" stroke="url(#helixGrad)" stroke-width="4" stroke-dasharray="6 12" stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="matching-engine.js"></script>
+  <script src="ai-processor.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
