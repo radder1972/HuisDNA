@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initWizard();
   initMap();
   initPlayground();
+  initMasterplanModal();
   
   // Toon initiële kaveldata in DNA inspector
   updateDnaInspector(null);
@@ -1012,4 +1013,28 @@ function initPlayground() {
     // Spring naar de dashboard tab om het effect te zien
     switchTab("view-dashboard");
   });
+}
+
+// --- MASTERPLAN MODAL KOOPERS ---
+function initMasterplanModal() {
+  const btnShow = document.getElementById("btn-show-masterplan");
+  const btnClose = document.getElementById("btn-close-masterplan");
+  const modal = document.getElementById("masterplan-modal");
+
+  if (btnShow && btnClose && modal) {
+    btnShow.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+
+    btnClose.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Close when clicking outside of the content container
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
 }
