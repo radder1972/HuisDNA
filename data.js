@@ -16,7 +16,7 @@ const initialKavels = [
     distanceToRoad: 120,
     privacyScore: 6,
     description: "Prachtig gelegen aan de Muidertrekvaart in plandeel Kruitpadwal. Deze kavel biedt fraai uitzicht over het water en bevindt zich direct nabij de historische vesting Muiden.",
-    coordinates: { x: 120, y: 110, width: 70, height: 90, rotation: -10 }
+    coordinates: { x: 80, y: 310, width: 60, height: 65, rotation: 0 }
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const initialKavels = [
     distanceToRoad: 130,
     privacyScore: 5,
     description: "Gunstige tussenkavel in plandeel Kruitpadwal met een zonnige achtertuin. Perfect passend binnen het industriële en historische erfgoed van de oude KNSF-fabriek.",
-    coordinates: { x: 195, y: 97, width: 60, height: 90, rotation: -10 }
+    coordinates: { x: 150, y: 310, width: 55, height: 65, rotation: 0 }
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const initialKavels = [
     distanceToRoad: 140,
     privacyScore: 5,
     description: "Centraal gelegen tussenkavel nabij de historische kruitpaden. Compacte, efficiënte indeling met uitstekende zonuren.",
-    coordinates: { x: 260, y: 85, width: 60, height: 90, rotation: -10 }
+    coordinates: { x: 215, y: 310, width: 55, height: 65, rotation: 0 }
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const initialKavels = [
     distanceToRoad: 150,
     privacyScore: 7,
     description: "Riante hoekkavel aan het einde van plandeel Kruitpadwal. Optimale zoninval met extra zijtuin grenzend aan een brede waterpartij.",
-    coordinates: { x: 325, y: 73, width: 75, height: 90, rotation: -10 }
+    coordinates: { x: 280, y: 310, width: 65, height: 65, rotation: 0 }
   },
   {
     id: 5,
@@ -88,7 +88,7 @@ const initialKavels = [
     distanceToRoad: 250,
     privacyScore: 8,
     description: "Gelegen in de lommerrijke, bosrijke zone van De Krijgsman. Veel schaduw en optimale privacy door volwassen loofbomen.",
-    coordinates: { x: 150, y: 280, width: 85, height: 110, rotation: 5 }
+    coordinates: { x: 90, y: 200, width: 65, height: 75, rotation: 10 }
   },
   {
     id: 6,
@@ -106,7 +106,7 @@ const initialKavels = [
     distanceToRoad: 260,
     privacyScore: 8,
     description: "Prachtig ingepaste kavel in de bosrand. Grenst aan een groen wandelpad dat direct leidt naar de dijk en het IJmeer.",
-    coordinates: { x: 240, y: 288, width: 80, height: 110, rotation: 5 }
+    coordinates: { x: 165, y: 190, width: 65, height: 75, rotation: 5 }
   },
   {
     id: 7,
@@ -124,7 +124,7 @@ const initialKavels = [
     distanceToRoad: 270,
     privacyScore: 8.5,
     description: "Biedt veel privacy en rust. Uitermate geschikt voor gezinnen die in een rustige, bosrijke biotoop nabij Amsterdam willen wonen.",
-    coordinates: { x: 325, y: 295, width: 80, height: 110, rotation: 5 }
+    coordinates: { x: 240, y: 185, width: 65, height: 75, rotation: -5 }
   },
   {
     id: 8,
@@ -142,7 +142,7 @@ const initialKavels = [
     distanceToRoad: 280,
     privacyScore: 9,
     description: "Een van de grootste kavels in plandeel Het Bos. Grenst direct aan het gemeenschappelijke bosplantsoen met optimale schaduw en rust.",
-    coordinates: { x: 410, y: 302, width: 90, height: 110, rotation: 5 }
+    coordinates: { x: 315, y: 190, width: 70, height: 75, rotation: -10 }
   },
   {
     id: 9,
@@ -160,7 +160,7 @@ const initialKavels = [
     distanceToRoad: 400,
     privacyScore: 8.5,
     description: "Exclusieve kavel gelegen in plandeel De Eilanden. Direct omgeven door grachten en bevaarbaar vaarwater met verbinding naar de Vecht.",
-    coordinates: { x: 550, y: 150, width: 100, height: 100, rotation: 15 }
+    coordinates: { x: 480, y: 100, width: 75, height: 75, rotation: 15 }
   },
   {
     id: 10,
@@ -178,7 +178,7 @@ const initialKavels = [
     distanceToRoad: 420,
     privacyScore: 9,
     description: "Zongeoriënteerde villakavel aan het open water. Perfecte bezonning gedurende de hele dag met ruimte voor een eigen aanlegsteiger.",
-    coordinates: { x: 655, y: 178, width: 105, height: 100, rotation: 15 }
+    coordinates: { x: 570, y: 80, width: 80, height: 80, rotation: -15 }
   },
   {
     id: 11,
@@ -196,7 +196,7 @@ const initialKavels = [
     distanceToRoad: 440,
     privacyScore: 8.5,
     description: "Gelegen in een verkeersluw hofje op De Eilanden. Biedt maximale rust en privacy met riante bouwmogelijkheden volgens het beeldkwaliteitsplan.",
-    coordinates: { x: 575, y: 255, width: 95, height: 100, rotation: 15 }
+    coordinates: { x: 530, y: 220, width: 80, height: 80, rotation: 10 }
   },
   {
     id: 12,
@@ -214,7 +214,7 @@ const initialKavels = [
     distanceToRoad: 460,
     privacyScore: 9.5,
     description: "De absolute kroonkavel van De Eilanden. Maximaal perceeloppervlak, eigen eiland-gevoel, perfecte bezonning en weids uitzicht over het water.",
-    coordinates: { x: 675, y: 282, width: 110, height: 100, rotation: 15 }
+    coordinates: { x: 630, y: 200, width: 85, height: 85, rotation: -10 }
   }
 ];
 
