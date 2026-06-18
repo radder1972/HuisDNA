@@ -412,11 +412,24 @@ function initLeafletMap() {
   leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });
   leafletMap.on('blur', () => { leafletMap.scrollWheelZoom.disable(); });
   
-  // Esri World Imagery (Hoge kwaliteit satellietfoto) inladen
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and GIS User Community',
+  // PDOK Actuele Luchtfoto (Luchtfoto van het Kadaster) inladen
+  const aerialLayer = L.tileLayer('https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueelortho25/EPSG:3857/{z}/{x}/{y}.jpeg', {
+    attribution: 'Foto &copy; <a href="https://www.pdok.nl">PDOK</a>',
     maxZoom: 19
   }).addTo(leafletMap);
+
+  // Kadaster BRT Achtergrondkaart inladen
+  const brtLayer = L.tileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/{z}/{x}/{y}.png', {
+    attribution: 'Kaart &copy; <a href="https://www.kadaster.nl">Kadaster</a>',
+    maxZoom: 19
+  });
+
+  // Voeg een lagen-toggle toe aan de kaart zodat de gebruiker kan schakelen
+  const baseMaps = {
+    "Actuele Luchtfoto (PDOK)": aerialLayer,
+    "Kadaster Kaart (BRT)": brtLayer
+  };
+  L.control.layers(baseMaps, null, { position: 'topright', collapsed: false }).addTo(leafletMap);
   
   // Plot de polygonen op de kaart
   renderLeafletPolygons();
