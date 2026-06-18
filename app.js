@@ -395,11 +395,11 @@ function renderMapKavels() {
 
 // --- LEAFLET SATELLIETKAART (OPTIE B) FUNCTIES ---
 function initLeafletMap() {
-  // Centreer op De Krijgsman Muiden (coördinaten: 52.3287, 5.0645)
+  // Centreer op De Krijgsman Muiden (coördinaten: 52.3303, 5.0632)
   leafletMap = L.map('leaflet-map', {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView([52.3284, 5.0645], 16);
+  }).setView([52.3303, 5.0632], 16);
   
   // Activeer zoom pas na focus
   leafletMap.on('focus', () => { leafletMap.scrollWheelZoom.enable(); });

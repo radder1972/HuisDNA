@@ -18,10 +18,10 @@ const initialKavels = [
     description: "Prachtig gelegen aan de Muidertrekvaart in plandeel Kruitpadwal. Deze kavel biedt fraai uitzicht over het water en bevindt zich direct nabij de historische vesting Muiden.",
     coordinates: { x: 80, y: 310, width: 60, height: 65, rotation: 0 },
     gpsPolygon: [
-      [52.32530, 5.06200],
-      [52.32550, 5.06210],
-      [52.32545, 5.06230],
-      [52.32525, 5.06220]
+      [52.3280, 5.0612],
+      [52.3282, 5.0612],
+      [52.3282, 5.0615],
+      [52.3280, 5.0615]
     ]
   },
   {
@@ -42,10 +42,10 @@ const initialKavels = [
     description: "Gunstige tussenkavel in plandeel Kruitpadwal met een zonnige achtertuin. Perfect passend binnen het industriële en historische erfgoed van de oude KNSF-fabriek.",
     coordinates: { x: 150, y: 310, width: 55, height: 65, rotation: 0 },
     gpsPolygon: [
-      [52.32550, 5.06210],
-      [52.32570, 5.06220],
-      [52.32565, 5.06240],
-      [52.32545, 5.06230]
+      [52.3281, 5.0616],
+      [52.3283, 5.0616],
+      [52.3283, 5.0619],
+      [52.3281, 5.0619]
     ]
   },
   {
@@ -66,10 +66,10 @@ const initialKavels = [
     description: "Centraal gelegen tussenkavel nabij de historische kruitpaden. Compacte, efficiënte indeling met uitstekende zonuren.",
     coordinates: { x: 215, y: 310, width: 55, height: 65, rotation: 0 },
     gpsPolygon: [
-      [52.32570, 5.06220],
-      [52.32590, 5.06230],
-      [52.32585, 5.06250],
-      [52.32565, 5.06240]
+      [52.3282, 5.0620],
+      [52.3284, 5.0620],
+      [52.3284, 5.0623],
+      [52.3282, 5.0623]
     ]
   },
   {
@@ -90,10 +90,10 @@ const initialKavels = [
     description: "Riante hoekkavel aan het einde van plandeel Kruitpadwal. Optimale zoninval met extra zijtuin grenzend aan een brede waterpartij.",
     coordinates: { x: 280, y: 310, width: 65, height: 65, rotation: 0 },
     gpsPolygon: [
-      [52.32590, 5.06230],
-      [52.32610, 5.06240],
-      [52.32605, 5.06260],
-      [52.32585, 5.06250]
+      [52.3283, 5.0624],
+      [52.3285, 5.0624],
+      [52.3285, 5.0627],
+      [52.3283, 5.0627]
     ]
   },
   {
@@ -114,10 +114,10 @@ const initialKavels = [
     description: "Gelegen in de lommerrijke, bosrijke zone van De Krijgsman. Veel schaduw en optimale privacy door volwassen loofbomen.",
     coordinates: { x: 90, y: 200, width: 65, height: 75, rotation: 10 },
     gpsPolygon: [
-      [52.32780, 5.05940],
-      [52.32800, 5.05950],
-      [52.32795, 5.05980],
-      [52.32775, 5.05970]
+      [52.3320, 5.0580],
+      [52.3322, 5.0580],
+      [52.3322, 5.0583],
+      [52.3320, 5.0583]
     ]
   },
   {
@@ -138,10 +138,10 @@ const initialKavels = [
     description: "Prachtig ingepaste kavel in de bosrand. Grenst aan een groen wandelpad dat direct leidt naar de dijk en het IJmeer.",
     coordinates: { x: 165, y: 190, width: 65, height: 75, rotation: 5 },
     gpsPolygon: [
-      [52.32800, 5.05950],
-      [52.32820, 5.05960],
-      [52.32815, 5.05990],
-      [52.32795, 5.05980]
+      [52.3321, 5.0584],
+      [52.3323, 5.0584],
+      [52.3323, 5.0587],
+      [52.3321, 5.0587]
     ]
   },
   {
@@ -162,10 +162,10 @@ const initialKavels = [
     description: "Biedt veel privacy en rust. Uitermate geschikt voor gezinnen die in een rustige, bosrijke biotoop nabij Amsterdam willen wonen.",
     coordinates: { x: 240, y: 185, width: 65, height: 75, rotation: -5 },
     gpsPolygon: [
-      [52.32820, 5.05960],
-      [52.32840, 5.05970],
-      [52.32835, 5.06000],
-      [52.32815, 5.05990]
+      [52.3322, 5.0588],
+      [52.3324, 5.0588],
+      [52.3324, 5.0591],
+      [52.3322, 5.0591]
     ]
   },
   {
@@ -186,10 +186,10 @@ const initialKavels = [
     description: "Een van de grootste kavels in plandeel Het Bos. Grenst direct aan het gemeenschappelijke bosplantsoen met optimale schaduw en rust.",
     coordinates: { x: 315, y: 190, width: 70, height: 75, rotation: -10 },
     gpsPolygon: [
-      [52.32840, 5.05970],
-      [52.32860, 5.05980],
-      [52.32855, 5.06015],
-      [52.32835, 5.06000]
+      [52.3323, 5.0592],
+      [52.3325, 5.0592],
+      [52.3325, 5.0595],
+      [52.3323, 5.0595]
     ]
   },
   {
@@ -210,10 +210,10 @@ const initialKavels = [
     description: "Exclusieve kavel gelegen in plandeel De Eilanden. Direct omgeven door grachten en bevaarbaar vaarwater met verbinding naar de Vecht.",
     coordinates: { x: 480, y: 100, width: 75, height: 75, rotation: 15 },
     gpsPolygon: [
-      [52.33080, 5.06820],
-      [52.33100, 5.06830],
-      [52.33095, 5.06860],
-      [52.33075, 5.06850]
+      [52.3310, 5.0665],
+      [52.3312, 5.0665],
+      [52.3312, 5.0669],
+      [52.3310, 5.0669]
     ]
   },
   {
@@ -234,10 +234,10 @@ const initialKavels = [
     description: "Zongeoriënteerde villakavel aan het open water. Perfecte bezonning gedurende de hele dag met ruimte voor een eigen aanlegsteiger.",
     coordinates: { x: 570, y: 80, width: 80, height: 80, rotation: -15 },
     gpsPolygon: [
-      [52.33100, 5.06830],
-      [52.33120, 5.06840],
-      [52.33115, 5.06870],
-      [52.33095, 5.06860]
+      [52.3312, 5.0670],
+      [52.3314, 5.0670],
+      [52.3314, 5.0674],
+      [52.3312, 5.0674]
     ]
   },
   {
@@ -258,10 +258,10 @@ const initialKavels = [
     description: "Gelegen in een verkeersluw hofje op De Eilanden. Biedt maximale rust en privacy met riante bouwmogelijkheden volgens het beeldkwaliteitsplan.",
     coordinates: { x: 530, y: 220, width: 80, height: 80, rotation: 10 },
     gpsPolygon: [
-      [52.33050, 5.06900],
-      [52.33070, 5.06910],
-      [52.33065, 5.06940],
-      [52.33045, 5.06930]
+      [52.3314, 5.0675],
+      [52.3316, 5.0675],
+      [52.3316, 5.0679],
+      [52.3314, 5.0679]
     ]
   },
   {
@@ -282,10 +282,10 @@ const initialKavels = [
     description: "De absolute kroonkavel van De Eilanden. Maximaal perceeloppervlak, eigen eiland-gevoel, perfecte bezonning en weids uitzicht over het water.",
     coordinates: { x: 630, y: 200, width: 85, height: 85, rotation: -10 },
     gpsPolygon: [
-      [52.33070, 5.06910],
-      [52.33090, 5.06920],
-      [52.33085, 5.06950],
-      [52.33065, 5.06940]
+      [52.3316, 5.0680],
+      [52.3318, 5.0680],
+      [52.3318, 5.0684],
+      [52.3316, 5.0684]
     ]
   }
 ];
