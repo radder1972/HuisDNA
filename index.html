@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HuisDNA - Vind uw ideale nieuwbouwkavel op basis van uw levensstijl en perceeleigenschappen met behulp van slimme matching en AI DSO-analyse.">
-  <title>HuisDNA | Nieuwbouw Perceelkiezer</title>
+  <meta name="description" content="HuisDNA voor De Krijgsman Muiden - Vind uw ideale nieuwbouwkavel op basis van uw levensstijl en perceeleigenschappen met behulp van slimme matching en AI DSO-analyse.">
+  <title>De Krijgsman Muiden | HuisDNA Perceelkiezer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -43,10 +43,10 @@
       
       <!-- Welcome panel shown before starting -->
       <div id="wizard-welcome" class="welcome-panel">
-        <h1>Vind uw perfecte nieuwbouwkavel</h1>
+        <h1>Vind uw kavel in De Krijgsman Muiden</h1>
         <p>
-          Het kiezen van een bouwlocatie kan complex zijn. HuisDNA matcht uw levensstijl en wensen 
-          met het fysieke en juridische 'DNA' van kavels binnen ons project. Neem 2 minuten de tijd en vind uw Top 3.
+          Het kiezen van een bouwlocatie kan complex zijn door het grote aanbod en de unieke voorschriften per plandeel (Kruitpadwal, Het Bos, De Eilanden). 
+          HuisDNA matcht uw levensstijl en wensen met het 'DNA' van de kavels. Vind binnen 2 minuten uw Top 3.
         </p>
         <button id="btn-start-wizard" class="btn-primary">
           Start Lifestyle Matcher <svg class="svg-icon" viewBox="0 0 24 24" style="stroke: currentColor; margin-left: 0.25rem;"><path d="M12 16v-3" /><path d="M9 16v-4a3 3 0 0 1 6 0v4" /><path d="M6 18v-6a6 6 0 0 1 12 0v6" /><path d="M3 20v-8a9 9 0 0 1 18 0v8" /></svg>
@@ -68,14 +68,16 @@
         <div class="wizard-body">
           <form id="wizard-form" onsubmit="return false;">
             
-            <!-- Step 1: Core parameters (Hard Filters) -->
-            <div id="step-1" class="wizard-step-content active">
-              <div class="form-group">
-                <label for="input-budget">Maximaal budget (€)</label>
-                <div class="form-desc">Kavels boven dit budget worden automatisch gefilterd.</div>
-                <div class="input-slider-wrapper">
-                  <input type="range" id="input-budget" min="250000" max="500000" step="10000" value="400000">
-                  <span class="slider-value" id="val-budget">€ 400.000</span>
+            <!-- Step 1 View -->
+            <div class="wizard-step-view active" id="step-1">
+              <div class="form-section">
+                <div class="form-group">
+                  <label for="input-budget">Maximaal budget (€)</label>
+                  <div class="form-desc">Kavels boven dit budget worden automatisch gefilterd.</div>
+                  <div class="slider-container">
+                    <input type="range" id="input-budget" min="500000" max="2000000" step="50000" value="1200000">
+                    <span class="slider-value" id="val-budget">€ 1.200.000</span>
+                  </div>
                 </div>
               </div>
 
@@ -319,11 +321,11 @@
               
               <!-- Water Area on the left -->
               <path d="M 0 0 L 70 0 Q 110 225 70 450 L 0 450 Z" class="svg-water" fill="url(#waterGrad)" />
-              <text x="35" y="225" fill="#93c5fd" font-size="14" font-weight="bold" transform="rotate(-90 35 225)" text-anchor="middle" opacity="0.6">HAVENKANAAL</text>
+              <text x="35" y="225" fill="#93c5fd" font-size="14" font-weight="bold" transform="rotate(-90 35 225)" text-anchor="middle" opacity="0.6">MUIDERTREKVAART</text>
 
               <!-- Forest/Park on the bottom -->
               <path d="M 70 450 Q 300 380 520 450 Z" class="svg-green" />
-              <text x="250" y="430" fill="#a7f3d0" font-size="12" font-weight="bold" text-anchor="middle" opacity="0.5">PARKRAND BOSPLANTSOEN</text>
+              <text x="250" y="430" fill="#a7f3d0" font-size="12" font-weight="bold" text-anchor="middle" opacity="0.5">HET BOS (NATUURRIJK WONEN)</text>
               
               <!-- Connecting Road -->
               <path d="M 70 200 C 200 180, 400 240, 500 200 C 560 170, 560 100, 650 90 L 800 90" fill="none" stroke="var(--bg-tertiary)" stroke-width="26" stroke-linecap="round" opacity="0.8" />
@@ -463,9 +465,9 @@
             <div class="form-group" style="margin-bottom:0;">
               <label for="apply-to-kavel-select" style="display:inline-block; margin-right: 0.5rem;">Toepassen op kavels:</label>
               <select id="apply-to-kavel-select" style="background:var(--bg-tertiary); color:var(--text-primary); border:1px solid var(--border-color); padding:0.4rem; border-radius:0.5rem;">
-                <option value="1,2,3,4">Kavel 1 t/m 4 (Havenzicht)</option>
-                <option value="5,6,7,8">Kavel 5 t/m 8 (Parkrand)</option>
-                <option value="9,10,11,12">Kavel 9 t/m 12 (Zonnehof)</option>
+                <option value="1,2,3,4">Kavel 1 t/m 4 (Kruitpadwal)</option>
+                <option value="5,6,7,8">Kavel 5 t/m 8 (Het Bos)</option>
+                <option value="9,10,11,12">Kavel 9 t/m 12 (De Eilanden)</option>
               </select>
             </div>
             

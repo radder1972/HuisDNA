@@ -1,9 +1,9 @@
-// Kavel-DNA Database en DSO Voorbeeldteksten
+// Kavel-DNA Database en DSO Voorbeeldteksten voor De Krijgsman Muiden
 const initialKavels = [
   {
     id: 1,
-    name: "Kavel 1 (Havenzicht)",
-    price: 325000,
+    name: "Kavel 1 (Kruitpadwal - Type Houtwerf)",
+    price: 575000,
     size: 240,
     gardenOrientation: "Zuidwest",
     sunHours: 8,
@@ -15,13 +15,13 @@ const initialKavels = [
     distanceToWater: 20,
     distanceToRoad: 120,
     privacyScore: 6,
-    description: "Gelegen aan de rand van de haven met prachtig uitzicht over het water. Perfect voor wie houdt van een levendige omgeving met verkoelende briesjes.",
+    description: "Prachtig gelegen aan de Muidertrekvaart in plandeel Kruitpadwal. Deze kavel biedt fraai uitzicht over het water en bevindt zich direct nabij de historische vesting Muiden.",
     coordinates: { x: 120, y: 110, width: 70, height: 90, rotation: -10 }
   },
   {
     id: 2,
-    name: "Kavel 2 (Havenzicht)",
-    price: 310000,
+    name: "Kavel 2 (Kruitpadwal - Type Zaagloodsen)",
+    price: 550000,
     size: 210,
     gardenOrientation: "Zuidwest",
     sunHours: 8,
@@ -33,13 +33,13 @@ const initialKavels = [
     distanceToWater: 35,
     distanceToRoad: 130,
     privacyScore: 5,
-    description: "Een knusse tussenkavel met een zonnige tuin. Ideaal voor startende gezinnen die dicht bij het water willen wonen.",
+    description: "Gunstige tussenkavel in plandeel Kruitpadwal met een zonnige achtertuin. Perfect passend binnen het industriële en historische erfgoed van de oude KNSF-fabriek.",
     coordinates: { x: 195, y: 97, width: 60, height: 90, rotation: -10 }
   },
   {
     id: 3,
-    name: "Kavel 3 (Havenzicht)",
-    price: 315000,
+    name: "Kavel 3 (Kruitpadwal - Type Werkplaats)",
+    price: 560000,
     size: 215,
     gardenOrientation: "Zuidwest",
     sunHours: 7.5,
@@ -51,13 +51,13 @@ const initialKavels = [
     distanceToWater: 50,
     distanceToRoad: 140,
     privacyScore: 5,
-    description: "Centraal gelegen tussenkavel met uitstekende bezonning en een compacte maar functionele tuinligging.",
+    description: "Centraal gelegen tussenkavel nabij de historische kruitpaden. Compacte, efficiënte indeling met uitstekende zonuren.",
     coordinates: { x: 260, y: 85, width: 60, height: 90, rotation: -10 }
   },
   {
     id: 4,
-    name: "Kavel 4 (Havenzicht)",
-    price: 345000,
+    name: "Kavel 4 (Kruitpadwal - Type Mengerij)",
+    price: 610000,
     size: 275,
     gardenOrientation: "Zuid",
     sunHours: 9,
@@ -69,13 +69,13 @@ const initialKavels = [
     distanceToWater: 65,
     distanceToRoad: 150,
     privacyScore: 7,
-    description: "Ruime hoekkavel met extra zijtuin en optimale zoninval gedurende de gehele dag. Grenst aan een rustig wandelpad.",
+    description: "Riante hoekkavel aan het einde van plandeel Kruitpadwal. Optimale zoninval met extra zijtuin grenzend aan een brede waterpartij.",
     coordinates: { x: 325, y: 73, width: 75, height: 90, rotation: -10 }
   },
   {
     id: 5,
-    name: "Kavel 5 (Parkrand)",
-    price: 395000,
+    name: "Kavel 5 (Het Bos - Bosrijk Wonen)",
+    price: 895000,
     size: 340,
     gardenOrientation: "Noordwest",
     sunHours: 5,
@@ -87,13 +87,13 @@ const initialKavels = [
     distanceToWater: 150,
     distanceToRoad: 250,
     privacyScore: 8,
-    description: "Prachtig gelegen aan de rand van het park. Veel natuurlijke schaduw en privacy door de omliggende volwassen bomenrij.",
+    description: "Gelegen in de lommerrijke, bosrijke zone van De Krijgsman. Veel schaduw en optimale privacy door volwassen loofbomen.",
     coordinates: { x: 150, y: 280, width: 85, height: 110, rotation: 5 }
   },
   {
     id: 6,
-    name: "Kavel 6 (Parkrand)",
-    price: 385000,
+    name: "Kavel 6 (Het Bos - Bosrijk Wonen)",
+    price: 875000,
     size: 320,
     gardenOrientation: "Noord",
     sunHours: 4.5,
@@ -105,13 +105,13 @@ const initialKavels = [
     distanceToWater: 170,
     distanceToRoad: 260,
     privacyScore: 8,
-    description: "Een heerlijk rustige kavel direct grenzend aan een brede groenstrook met speelvoorzieningen voor de kinderen om de hoek.",
+    description: "Prachtig ingepaste kavel in de bosrand. Grenst aan een groen wandelpad dat direct leidt naar de dijk en het IJmeer.",
     coordinates: { x: 240, y: 288, width: 80, height: 110, rotation: 5 }
   },
   {
     id: 7,
-    name: "Kavel 7 (Parkrand)",
-    price: 390000,
+    name: "Kavel 7 (Het Bos - Natuurpark)",
+    price: 885000,
     size: 330,
     gardenOrientation: "Noord",
     sunHours: 5,
@@ -123,13 +123,13 @@ const initialKavels = [
     distanceToWater: 190,
     distanceToRoad: 270,
     privacyScore: 8.5,
-    description: "Biedt veel privacy en rust. Uitermate geschikt voor natuurliefhebbers die waarde hechten aan een groene, bosrijke leefomgeving.",
+    description: "Biedt veel privacy en rust. Uitermate geschikt voor gezinnen die in een rustige, bosrijke biotoop nabij Amsterdam willen wonen.",
     coordinates: { x: 325, y: 295, width: 80, height: 110, rotation: 5 }
   },
   {
     id: 8,
-    name: "Kavel 8 (Parkrand)",
-    price: 410000,
+    name: "Kavel 8 (Het Bos - De Bosvilla)",
+    price: 925000,
     size: 380,
     gardenOrientation: "Noordoost",
     sunHours: 5.5,
@@ -141,13 +141,13 @@ const initialKavels = [
     distanceToWater: 210,
     distanceToRoad: 280,
     privacyScore: 9,
-    description: "De grootste kavel in de Parkrand-zone met een riante tuin die overloopt in het gemeenschappelijke bosplantsoen.",
+    description: "Een van de grootste kavels in plandeel Het Bos. Grenst direct aan het gemeenschappelijke bosplantsoen met optimale schaduw en rust.",
     coordinates: { x: 410, y: 302, width: 90, height: 110, rotation: 5 }
   },
   {
     id: 9,
-    name: "Kavel 9 (Zonnehof)",
-    price: 445000,
+    name: "Kavel 9 (De Eilanden - Villa-eiland)",
+    price: 1450000,
     size: 420,
     gardenOrientation: "Zuidoost",
     sunHours: 8.5,
@@ -159,13 +159,13 @@ const initialKavels = [
     distanceToWater: 90,
     distanceToRoad: 400,
     privacyScore: 8.5,
-    description: "Een riante kavel aan een verkeersluw hofje. Zeer gunstige bouwvoorschriften met veel ruimte voor een royale villa met bijgebouwen.",
+    description: "Exclusieve kavel gelegen in plandeel De Eilanden. Direct omgeven door grachten en bevaarbaar vaarwater met verbinding naar de Vecht.",
     coordinates: { x: 550, y: 150, width: 100, height: 100, rotation: 15 }
   },
   {
     id: 10,
-    name: "Kavel 10 (Zonnehof)",
-    price: 465000,
+    name: "Kavel 10 (De Eilanden - Waterkant)",
+    price: 1650000,
     size: 450,
     gardenOrientation: "Zuid",
     sunHours: 10,
@@ -177,13 +177,13 @@ const initialKavels = [
     distanceToWater: 105,
     distanceToRoad: 420,
     privacyScore: 9,
-    description: "Prachtig zonnig georiënteerd. Uitstekende mogelijkheden voor zonnepanelen, een serre of een riante uitbouw aan de tuinzijde.",
+    description: "Zongeoriënteerde villakavel aan het open water. Perfecte bezonning gedurende de hele dag met ruimte voor een eigen aanlegsteiger.",
     coordinates: { x: 655, y: 178, width: 105, height: 100, rotation: 15 }
   },
   {
     id: 11,
-    name: "Kavel 11 (Zonnehof)",
-    price: 430000,
+    name: "Kavel 11 (De Eilanden - Eilandvilla)",
+    price: 1525000,
     size: 400,
     gardenOrientation: "Zuid",
     sunHours: 9.5,
@@ -195,13 +195,13 @@ const initialKavels = [
     distanceToWater: 120,
     distanceToRoad: 440,
     privacyScore: 8.5,
-    description: "Gelegen in de hoek van het plangebied met rondom vrij uitzicht en veel privacy. De ideale zonligging garandeert de hele dag licht.",
+    description: "Gelegen in een verkeersluw hofje op De Eilanden. Biedt maximale rust en privacy met riante bouwmogelijkheden volgens het beeldkwaliteitsplan.",
     coordinates: { x: 575, y: 255, width: 95, height: 100, rotation: 15 }
   },
   {
     id: 12,
-    name: "Kavel 12 (Zonnehof)",
-    price: 485000,
+    name: "Kavel 12 (De Eilanden - Kroonkavel)",
+    price: 1950000,
     size: 480,
     gardenOrientation: "Zuidwest",
     sunHours: 10,
@@ -213,37 +213,37 @@ const initialKavels = [
     distanceToWater: 135,
     distanceToRoad: 460,
     privacyScore: 9.5,
-    description: "De absolute kroonkavel van het project. Maximale privacy, grootste perceeloppervlakte en perfecte bezonning van 's ochtends tot 's avonds.",
+    description: "De absolute kroonkavel van De Eilanden. Maximaal perceeloppervlak, eigen eiland-gevoel, perfecte bezonning en weids uitzicht over het water.",
     coordinates: { x: 675, y: 282, width: 110, height: 100, rotation: 15 }
   }
 ];
 
 const sampleDSOTexts = [
   {
-    title: "Havenzicht (Kavels 1 t/m 4) - DSO Omgevingsplan",
-    text: `ARTIKEL 4.2: BOUWREGELS ZONE HAVENZICHT
-a. Het bebouwingspercentage van het bouwperceel mag niet meer bedragen dan 60%.
-b. De nokhoogte van hoofdgebouwen bedraagt ten hoogste 10,00 meter vanaf het peil.
-c. De goothoogte van hoofdgebouwen bedraagt ten hoogste 6,00 meter vanaf het peil.
-d. Op de kavels 1 t/m 4 zijn uitsluitend woningen van het type 'rijwoning', 'hoekwoning' of 'twee-onder-een-kap' toegestaan.
-e. Vergunningvrije uitbouwen aan de achterzijde van het hoofdgebouw zijn toegestaan tot een diepte van maximaal 3,00 meter, mits het bebouwingspercentage niet wordt overschreden.`
+    title: "Kruitpadwal (Kavels 1 t/m 4) - DSO Omgevingsplan",
+    text: `ARTIKEL 12.3: SPECIALE BOUWVOORSCHRIFTEN PLANDEEL KRUITPADWAL
+a. Het bebouwingspercentage van het kavelperceel bedraagt ten hoogste 60% voor de hoofdgebouwen.
+b. De nokhoogte van woningen aan het Kruitpadwal bedraagt maximaal 10,00 meter gemeten vanaf peil.
+c. De goothoogte van hoofdgebouwen bedraagt ten hoogste 6,00 meter vanaf peil.
+d. Binnen deze zone zijn uitsluitend woningen van het type 'rijwoning' of 'hoekwoning' toegestaan om het historische lintkarakter te behouden.
+e. Het realiseren van bijgebouwen aan de waterzijde van de Muidertrekvaart is verboden om het open zicht vanaf het vaarwater te waarborgen.`
   },
   {
-    title: "Parkrand (Kavels 5 t/m 8) - DSO Omgevingsplan",
-    text: `ARTIKEL 5.6: SPECIFIEKE BOUWVOORSCHRIFTEN PARKRAND-BIOTOP
-a. In verband met de instandhouding van de bos- en parkrandbiotoop is de maximale nokhoogte van gebouwen beperkt tot 9,00 meter vanaf peil.
-b. Ter waarborging van de bodeminfiltratie bedraagt het maximale bebouwingspercentage 50% van het perceeloppervlakte.
-c. De goothoogte mag maximaal 4,00 meter bedragen om de daklijn visueel te beperken.
-d. Bijgebouwen en overkappingen mogen een gezamenlijke oppervlakte van maximaal 40 m² beslaan.
-e. Vanwege de landschappelijke inpassing zijn uitsluitend twee-onder-een-kapwoningen en op kavel 8 een vrijstaande woning toegestaan.`
+    title: "Het Bos (Kavels 5 t/m 8) - DSO Omgevingsplan",
+    text: `ARTIKEL 14.2: GEBIEDSREGELS PARKRAND EN HET BOS
+a. Ter bescherming van de boomwortels en bosrijke biotoop is het maximale bebouwingspercentage vastgesteld op 50% van het perceel.
+b. De nokhoogte van de bosvilla's en tweekappers mag niet meer bedragen dan 9,00 meter vanaf peil.
+c. De goothoogte bedraagt maximaal 4,00 meter, teneinde de kaplijn in harmonie te brengen met het omliggende loofbos.
+d. Uitsluitend twee-onder-een-kapwoningen zijn toegestaan, met uitzondering van kavel 8 waar een vrijstaande villa is toegestaan.
+e. Er geldt een verplichte tuininrichtingszone van 3,00 meter grenzend aan het openbaar groen die vrij moet blijven van erfafscheidingen hoger dan 1,00 meter.`
   },
   {
-    title: "Zonnehof (Kavels 9 t/m 12) - DSO Omgevingsplan",
-    text: `ARTIKEL 6.1: ROBUUSTE WONINGBOUW ZONNEHOF
-a. Ter bevordering van een ruim opgezette villawijk bedraagt het maximaal toegestane bebouwingspercentage 70%.
-b. De maximale nokhoogte bedraagt 11,00 meter vanaf peil, met een goothoogte van ten hoogste 6,00 meter.
-c. Op deze kavels zijn uitsluitend vrijstaande woningen toegestaan.
-d. De realisatie van een zonnige serre of wintertuin aan de zuid- of westzijde van het hoofdgebouw is expliciet toegestaan en telt voor 50% mee bij de bepaling van de bebouwingsdichtheid, mits voorzien van HR+++ glas.`
+    title: "De Eilanden (Kavels 9 t/m 12) - DSO Omgevingsplan",
+    text: `ARTIKEL 16.5: EXCLUSIEVE WATERKAVELS PLANDEEL DE EILANDEN
+a. Voor de riante villa-eilanden is een bebouwingspercentage van maximaal 70% van het perceel toegestaan.
+b. De maximale nokhoogte bedraagt 11,00 meter vanaf peil, met een goothoogte van maximaal 6,00 meter.
+c. Binnen plandeel De Eilanden zijn uitsluitend vrijstaande woningen (villa's) toegestaan.
+d. Aanlegsteigers voor pleziervaartuigen zijn toegestaan tot een lengte van 6,00 meter, mits deze binnen de eigen perceelgrens vallen en het vaarverkeer niet hinderen.`
   }
 ];
 

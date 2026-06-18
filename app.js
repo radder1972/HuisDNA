@@ -9,7 +9,7 @@ let selectedKavelId = null;
 
 // Standaard lifestyle voorkeuren van de koper
 let preferences = {
-  budget: 400000,
+  budget: 1200000,
   houseType: "Geen voorkeur",
   desiredSize: 2, // 1=compact, 2=gemiddeld, 3=riant
   sunlightImportance: 1,
