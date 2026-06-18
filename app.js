@@ -416,13 +416,13 @@ function initLeafletMap() {
   const aerialLayer = L.tileLayer('https://service.pdok.nl/hwh/luchtfotorgb/wmts/v1_0/Actueelortho25/EPSG:3857/{z}/{x}/{y}.jpeg', {
     attribution: 'Foto &copy; <a href="https://www.pdok.nl">PDOK</a>',
     maxZoom: 19
-  }).addTo(leafletMap);
+  });
 
-  // Kadaster BRT Achtergrondkaart inladen
+  // Kadaster BRT Achtergrondkaart (Standaard PDOK basiskaart) inladen en direct activeren
   const brtLayer = L.tileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/standaard/EPSG:3857/{z}/{x}/{y}.png', {
     attribution: 'Kaart &copy; <a href="https://www.kadaster.nl">Kadaster</a>',
     maxZoom: 19
-  });
+  }).addTo(leafletMap);
 
   // Voeg een lagen-toggle toe aan de kaart zodat de gebruiker kan schakelen
   const baseMaps = {
