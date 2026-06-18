@@ -42,6 +42,15 @@ function initTabs() {
       switchTab(targetViewId);
     });
   });
+
+  // Logo klik brengt de gebruiker terug naar de startpagina
+  const logoBtn = document.getElementById("logo-home-btn");
+  if (logoBtn) {
+    logoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      switchTab("view-wizard");
+    });
+  }
 }
 
 function switchTab(viewId) {
