@@ -1100,16 +1100,16 @@ footer {
   }
 }
 
-/* Background Helix Watermark */
+/* Background Fingerprint Watermark */
 .bg-helix-watermark {
   position: fixed;
-  top: 0;
-  right: -5vw;
-  width: 45vw;
-  height: 100vh;
+  top: 12vh;
+  right: -10vw;
+  width: 55vw;
+  max-width: 900px;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.04; /* Very subtle watermark opacity for premium depth */
+  opacity: 0.035; /* Very subtle watermark opacity for light mode */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -1117,11 +1117,22 @@ footer {
   transition: opacity var(--transition-speed);
 }
 
+[data-theme="dark"] .bg-helix-watermark {
+  opacity: 0.06; /* Slightly more visible on dark backgrounds */
+}
+
+.bg-watermark-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 800px) {
   .bg-helix-watermark {
-    width: 85vw;
+    width: 90vw;
     right: -15vw;
-    opacity: 0.025; /* Fainter on mobile devices */
+    top: 15vh;
+    opacity: 0.02; /* Fainter on mobile devices */
   }
 }
 
